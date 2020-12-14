@@ -9,6 +9,10 @@ This book's goal is to help javascript frontend developers prepare for technical
  - This Book will be soon completed and then it will be available to buy in paper form. If you want me to send you an early copy of this book, please add your name and email address in this [Google Form](https://goo.gl/forms/c8ubV1tWBBdz6fJP2).
  - If you don't want to wait, you can buy [Yuri's JavaScript Flashcards](http://flashcardsjs.com), a set of frontend interview questions sorted by popularity among interviewers printed on beautiful poker-size flashcards.
 
+## Translation
+
+- [한국어](./korean.md)
+
 ## Question 1. What's the difference between `undefined` and `not defined` in JavaScript
 
 <details><summary><b>Answer</b></summary>
@@ -404,7 +408,7 @@ delete trees[3];
  - When you run the code above and do `console.log(trees);` in chrome developer console then you will get `["redwood", "bay", "cedar", undefined × 1, "maple"]`.
  - In the recent versions of Chrome you will see the word `empty` of `undefined x 1`.
  - When you run the same code in Firefox browser console then you will get `["redwood", "bay", "cedar", undefined, "maple"]`
-  
+
 Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
 
 **Note:** Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome.
@@ -447,7 +451,7 @@ The code above will output `1, "truexyz", 2, 1` as output. Here's a general guid
   - Number + String  -> Concatenation
   - String + Boolean -> Concatenation
   - String + String  -> Concatenation
-  
+
   
 
 </details>
@@ -800,7 +804,7 @@ The output of above code would be `"USA"`. Here `new User("xyz")` creates a bran
 
 Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's `"USA"`.
  Then it will be assigned to person. 
- 
+
  To better understand what's going on here, try to execute this code in console, line by line:
  ```javascript
 function User(name) {
@@ -812,9 +816,9 @@ var foo = new User("xyz");
 foo["location"] = "USA";
 // the console will show you that the result of this is "USA"
 
-```
- 
- 
+ ```
+
+
 </details>
 
 ## Question 24. What are Service Workers and when can you use them?
@@ -1556,7 +1560,7 @@ emp1.displayName = function() {
 
 employee.displayName(); //Nishant
 emp1.displayName();//xyz-Anonymous
-``` 
+```
 
 In addition to this **`Object.create(`)** method also allows to specify a second argument which is an object containing additional properties and methods to add to the new object.
 
@@ -1690,7 +1694,7 @@ delete employee.name // fails silently unless it's in strict mode
 
 // Trying to add new property will give an error
 employee.age = 30; // fails silently unless in strict mode
-``` 
+```
 
 when an object is sealed, its existing properties and methods can't be removed. Sealed object are also non-extensible.
 
@@ -1719,7 +1723,7 @@ console.log(Object.isFrozen(employee));     // true
 employee.name = "xyz"; // fails silently unless in strict mode
 employee.age = 30;     // fails silently unless in strict mode
 delete employee.name   // fails silently unless it's in strict mode
-``` 
+```
 
 Frozen objects are considered both non-extensible and sealed.
 
@@ -1750,7 +1754,7 @@ console.log(Object.isFrozen(employee));     // true
 employee.name = "xyz"; // fails silently unless in strict mode
 employee.age = 30;     // fails silently unless in strict mode
 delete employee.name;  // fails silently unless it's in strict mode
-``` 
+```
 
 
 </details>
@@ -1808,7 +1812,7 @@ For example: We can create string using string literal and using String construc
  var objStr = new String("Hi I am string object");
  console.log(isString(ltrlStr)); // true
  console.log(isString(objStr)); // true
-``` 
+```
 </details>
 
 ## Question 43 . What is typical use case for anonymous function in JavaScript ?
@@ -1992,7 +1996,7 @@ name , age , addressLine1 , addressLine2 , city */
 ```javascript
 const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
 ```
- 
+
 **Method 2: Without using built-in function**
 
 ```javascript
@@ -2239,7 +2243,7 @@ The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`
 
 The `slice` function copies all the elements of the array returning the new array. However,
 it doesn't do deep copying. Instead it does shallow copying. You can imagine slice implemented like this: 
- 
+
  ```javascript
 function slice(arr) {
     var result = [];
@@ -2248,7 +2252,7 @@ function slice(arr) {
     }
     return result; 
 }
-```
+ ```
 
 Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string, 
 it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference. 
