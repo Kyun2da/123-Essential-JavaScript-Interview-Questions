@@ -46,7 +46,7 @@ console.log(y);  // Output: ReferenceError: y is not defined
 
 </details>
 
-## Question 2. For which value of `x` the results of the following statements are not the same?
+## Question 2. 다음 두 조건식의 결과가 일치하지 않는  `x` 값은 어느 것인가요?
 
 
 ```javascript
@@ -54,13 +54,13 @@ if( x <= 100 ) {...}
 if( !(x > 100) ) {...}
 ```
 <details><summary><b>Answer</b></summary>
+`NaN <= 100` 는 `false` 이고 `NaN > 100` 또한 `false` 입니다. 그러므로, 만약  `x` 가 `NaN` 값을 가지면, 두개의 조건식의 결과는 일치하지 않게 됩니다. 
 
-`NaN <= 100` is `false` and `NaN > 100` is also `false`, so if the
-value of `x` is `NaN`, the statements are not the same.
+이러한 비교는 숫자(Number) 유형으로 변환되는 모든 x의 값에 대해서도 동일하게 적용되며  `NaN`을 반환합니다. 또한  `undefined`, `[1,2,5]`, `{a:22}`  등의 값도 같은 결과를 보여줍니다. 
 
-The same holds true for any value of x that being converted to type Number, returns `NaN`, e.g.: `undefined`, `[1,2,5]`, `{a:22}` , etc.
+ 그러므로 우리는 숫자(numeric) 변수를 다룰 때 조심해야 합니다. 왜냐하면,  `NaN` 은 어떠한 숫자(numeric) 값과 같거나 혹은 작거나, 클 수 없기 때문입니다. 
 
-This is why you need to pay attention when you deal with numeric variables. `NaN` can’t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use the `isNaN()` function.
+변수 값이 `NaN` 인지 확인하는 유일한 방법은  `isNaN()` 함수를 쓰는 것임을 명심하세요. 
 
 </details>
 
