@@ -2,48 +2,46 @@
 
 # 123-JavaScript-Interview-Questions
 
-This book's goal is to help javascript frontend developers prepare for technical job interviews through a collection of carefully compiled questions.
+이 책은 꼼꼼하게 정리한 문제집을 통해 자바스크립트 프론트엔드 개발자들이 기술직 면접을 준비할 수 있도록 돕는 것이 목표입니다.
 
-## Want to buy a book in paper form? Want some badass flashcards?
+## 종이책을 구입하고 싶나요? 플래시카드를 원하시나요?
 
- - This Book will be soon completed and then it will be available to buy in paper form. If you want me to send you an early copy of this book, please add your name and email address in this [Google Form](https://goo.gl/forms/c8ubV1tWBBdz6fJP2).
- - If you don't want to wait, you can buy [Yuri's JavaScript Flashcards](http://flashcardsjs.com), a set of frontend interview questions sorted by popularity among interviewers printed on beautiful poker-size flashcards.
+ - 책은 곧 구입이 가능해 질 것 입니다. 만약 이 책의 초기 사본을 원하신다면, [Google Form](https://goo.gl/forms/c8ubV1tWBBdz6fJP2)에 이름과 이메일주소를 등록해 주세요.
+ - 기다리는 것이 싫다면, 아름다운 포커사이즈 플래시카드에 인쇄된  [Yuri's JavaScript Flashcards](http://flashcardsjs.com)에서 구입 가능합니다.
 
-## Translation
+## Question 1. 자바스크립트에서 `undefined` 와 `not defined`의 차이
 
-- [한국어](./korean.md)
+<details><summary><b>정답</b></summary>
 
-## Question 1. What's the difference between `undefined` and `not defined` in JavaScript
 
-<details><summary><b>Answer</b></summary>
+만약 당신이 자바스크립트에서 선언되지 않거나 존재하지 않는 변수를 사용하려고 한다면, 자바스크립트는 `var name is not defined` 라는 에러를 던지고 실행을 중지할 것입니다. 그러나 만약 당신이 `typeof undeclared_variable` 를 입력한다면 그것은 `undefined`를 리턴할 것입니다.
 
-In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error `var name is not defined` and the script will stop executing thereafter. But If you use `typeof undeclared_variable` then it will return `undefined`.
+더 많은 논의를 시작하기 전에 선언(declaration)과 정의(definition)의 차이를 이해해보도록 하겠습니다.
 
-Before starting further discussion let's understand the difference between declaration and definition.
-
-`var x` is a declaration because we are not defining what value it holds yet, but we are declaring its existence and the need for memory allocation.
+`var x` 는 선언입니다. 우리는 아직 변수를 정의하지 않았습니다. 하지만 우리는 그것의 존재와 메모리 할당의 필요성을 선언하고 있습니다.
 
 ```javascript
 var x; // declaring x
 console.log(x); // output: undefined
 ```
 
-`var x = 1` is both declaration and definition, here declaration and assignment of value happen inline for variable x—what we are doing is called "initialisation". In JavaScript both variable declarations and function declarations go to the top of the scope in which they are declared, then assignment happens—this series of events is called "hoisting".
+`var x = 1` 는 선언과 정의를 동시에 하고 있습니다. 여기서 값의 선언 및 할당은 변수 x에 대해 인라인(?)에서 발생합니다. 우리는 이것을 초기화(initialization)라고 부릅니다. 자바스크립트에서 변수선언과 함수 선언 모두 선언된 범위의 최상단으로 이동한 다음 할당이 발생합니다. 우리는 이것을 보고 호이스팅(hoisting)이라고 부릅니다.
 
-A variable can be declared but not defined. When we try to access it, It will result `undefined`.
+`undefined`는 변수가 선언될 수는 있으나 정의될 수는 없는 경우일때 발생합니다. 우리가 이것에 대해 접근하려고 할 때, 이것은 `undefined`를 내뱉습니다.
 
 ```javascript
 var x; // Declaration
 typeof x === 'undefined'; // Will return true
 ```
 
-A variable can be neither declared nor defined. When we try to reference such variable then the result will be `not defined`.
+`not defined`는 변수가  선언될 수도 없고 정의될 수도 없는 경우입니다. 우리가 그러한 변수를 참조하려고할 때 결과는 `not defined` 입니다.
 
 ```javascript
 console.log(y);  // Output: ReferenceError: y is not defined
 ```
 
-### Ref Link:
+### 관련 링크:
+
 [http://stackoverflow.com/questions/20822022/javascript-variable-definition-declaration](http://stackoverflow.com/questions/20822022/javascript-variable-definition-declaration)
 
 </details>
