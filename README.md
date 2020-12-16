@@ -97,17 +97,18 @@ In this case each instance variable `emp1`, `emp2`, `emp3` has its own copy of t
 
 </details>
 
-## Question 4. What is “closure” in javascript? Can you provide an example?
+## Question 4. Javascript 에서 “closure” 는 무엇인가요? 예시를 들어줄 수 있나요 ? 
 
 <details><summary><b>Answer</b></summary>
+클로저는 다른 함수(부모 함수라고 부릅니다.) 안에 정의된 함수입니다. 그래서 그 부모 함수의 scope안에 선언되고 정의된 변수에 접근할 수 있습니다.
 
-A closure is a function defined inside another function (called parent function) and as such it has access to the variables declared and defined within its parent function's scope.
 
-The closure has access to the variables in three scopes:
 
-- Variable declared in his own scope
-- Variable declared in its parent function's scope
-- Variable declared in the global namespace
+Closure는 세가지의 scope 상황에서 변수에 접근 권한을 가집니다. 
+
+- 그것의 scope 안에 선언된 변수
+- 그것의 부모의 함수 scope 안에 선언된 변수
+- 전역 namespace에 선언된 변수 
 
 ```javascript
 var globalVar = "abc"; //Global variable
@@ -137,9 +138,11 @@ var globalVar = "abc"; //Global variable
 })(7); // Pass 7 as parameter to the Parent function
 ```
 
-`innerFunction` is a closure which is defined inside `outerFunction` and consequently has access to all the variables which have been declared and defined within `outerFunction`'s scope as well as any variables residing in the program's global scope.
+`outerFunction` 안에 정의된 `innerFunction` (내부 함수)는 closure 입니다. 그래서 결과적으로 `outerFunction` scope 와 프로그램의 전역 변수 scope 안에서 선언되고 정의된 모든 변수에 접근이 가능합니다.
 
-The output of the code above would be:
+
+
+위 코드의 출력 결과는 다음과 같습니다:
 
 ```javascript
 outerArg = 7
