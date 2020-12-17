@@ -46,7 +46,7 @@ console.log(y);  // Output: ReferenceError: y is not defined
 
 </details>
 
-## Question 2. For which value of `x` the results of the following statements are not the same?
+## Question 2. 다음 두 조건식의 결과가 일치하지 않는  `x` 값은 어느 것인가요?
 
 
 ```javascript
@@ -54,13 +54,13 @@ if( x <= 100 ) {...}
 if( !(x > 100) ) {...}
 ```
 <details><summary><b>Answer</b></summary>
+`NaN <= 100` 는 `false` 이고 `NaN > 100` 또한 `false` 입니다. 그러므로, 만약  `x` 가 `NaN` 값을 가지면, 두개의 조건식의 결과는 일치하지 않게 됩니다. 
 
-`NaN <= 100` is `false` and `NaN > 100` is also `false`, so if the
-value of `x` is `NaN`, the statements are not the same.
+이러한 비교는 숫자(Number) 유형으로 변환되는 모든 x의 값에 대해서도 동일하게 적용되며  `NaN`을 반환합니다. 또한  `undefined`, `[1,2,5]`, `{a:22}`  등의 값도 같은 결과를 보여줍니다. 
 
-The same holds true for any value of x that being converted to type Number, returns `NaN`, e.g.: `undefined`, `[1,2,5]`, `{a:22}` , etc.
+ 그러므로 우리는 숫자(numeric) 변수를 다룰 때 조심해야 합니다. 왜냐하면,  `NaN` 은 어떠한 숫자(numeric) 값과 같거나 혹은 작거나, 클 수 없기 때문입니다. 
 
-This is why you need to pay attention when you deal with numeric variables. `NaN` can’t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use the `isNaN()` function.
+변수 값이 `NaN` 인지 확인하는 유일한 방법은  `isNaN()` 함수를 쓰는 것임을 명심하세요. 
 
 </details>
 
@@ -97,17 +97,18 @@ In this case each instance variable `emp1`, `emp2`, `emp3` has its own copy of t
 
 </details>
 
-## Question 4. What is “closure” in javascript? Can you provide an example?
+## Question 4. Javascript 에서 “closure” 는 무엇인가요? 예시를 들어줄 수 있나요 ? 
 
 <details><summary><b>Answer</b></summary>
+클로저는 다른 함수(부모 함수라고 부릅니다.) 안에 정의된 함수입니다. 그래서 그 부모 함수의 scope안에 선언되고 정의된 변수에 접근할 수 있습니다.
 
-A closure is a function defined inside another function (called parent function) and as such it has access to the variables declared and defined within its parent function's scope.
 
-The closure has access to the variables in three scopes:
 
-- Variable declared in his own scope
-- Variable declared in its parent function's scope
-- Variable declared in the global namespace
+Closure는 세가지의 scope 상황에서 변수에 접근 권한을 가집니다. 
+
+- 그것의 scope 안에 선언된 변수
+- 그것의 부모의 함수 scope 안에 선언된 변수
+- 전역 namespace에 선언된 변수 
 
 ```javascript
 var globalVar = "abc"; //Global variable
@@ -137,9 +138,11 @@ var globalVar = "abc"; //Global variable
 })(7); // Pass 7 as parameter to the Parent function
 ```
 
-`innerFunction` is a closure which is defined inside `outerFunction` and consequently has access to all the variables which have been declared and defined within `outerFunction`'s scope as well as any variables residing in the program's global scope.
+`outerFunction` 안에 정의된 `innerFunction` (내부 함수)는 closure 입니다. 그래서 결과적으로 `outerFunction` scope 와 프로그램의 전역 변수 scope 안에서 선언되고 정의된 모든 변수에 접근이 가능합니다.
 
-The output of the code above would be:
+
+
+위 코드의 출력 결과는 다음과 같습니다:
 
 ```javascript
 outerArg = 7
