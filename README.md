@@ -64,11 +64,12 @@ if( !(x > 100) ) {...}
 
 </details>
 
-## Question 3. What is the drawback of declaring methods directly in JavaScript objects?
+## Question 3. 자바스크립트 오브젝트를 직접적으로 선언하는것의 단점은 무엇일까요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-One of the drawbacks of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object. Here's an example:
+
+자바스크립트 오브젝트를 직접적으로 선언하는 것의 단점중 하나는 그것들이 매우 메모리가 비효율적이라는 것입니다. 이렇게 하면 오브젝트의 각 인스턴스에 대해 메서드의 새 복사본이 생성됩니다. 다음은 예시입니다.
 
 ```javascript
 var Employee = function (name, company, salary) {
@@ -76,24 +77,24 @@ var Employee = function (name, company, salary) {
   this.company = company || "";
   this.salary = salary || 5000;
 
-  // We can create a method like this:
+  // 우리는 이런식으로 메소드를 만들 수 있습니다:
   this.formatSalary = function () {
       return "$ " + this.salary;
   };
 };
 
-// Alternatively we can add the method to Employee's prototype:
+// 대안으로, Employee의 프로토타입에 메소드를 추가할 수 있습니다:
 Employee.prototype.formatSalary2 = function() {
     return "$ " + this.salary;
 }
 
-//creating objects
+// 객체 생성
 var emp1 = new Employee('Yuri Garagin', 'Company 1', 1000000);
 var emp2 = new Employee('Dinesh Gupta', 'Company 2', 1039999);
 var emp3 = new Employee('Erich Fromm', 'Company 3', 1299483);
 ```
 
-In this case each instance variable `emp1`, `emp2`, `emp3` has its own copy of the`formatSalary` method. However the `formatSalary2` will only be added once to `Employee.prototype`.
+이 경우에 각각의 변수 `emp1`, `emp2`, `emp3` 는 각각`formatSalary` 메소드를 가집니다. 그러나 `formatSalary2` 는 `Employee.prototype`에 한번만 추가될 것입니다.
 
 </details>
 
