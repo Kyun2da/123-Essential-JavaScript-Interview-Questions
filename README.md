@@ -21,8 +21,8 @@
 `var x` 는 선언입니다. 우리는 아직 변수를 정의하지 않았습니다. 하지만 우리는 그것의 존재와 메모리 할당의 필요성을 선언하고 있습니다.
 
 ```javascript
-var x; // declaring x
-console.log(x); // output: undefined
+var x; // x를 선언
+console.log(x); // 출력: undefined
 ```
 
 `var x = 1` 는 선언과 정의를 동시에 하고 있습니다. 여기서 값의 선언 및 할당은 변수 x에 대해 인라인(?)에서 발생합니다. 우리는 이것을 초기화(initialization)라고 부릅니다. 자바스크립트에서 변수선언과 함수 선언 모두 선언된 범위의 최상단으로 이동한 다음 할당이 발생합니다. 우리는 이것을 보고 호이스팅(hoisting)이라고 부릅니다.
@@ -30,14 +30,14 @@ console.log(x); // output: undefined
 `undefined`는 변수가 선언될 수는 있으나 정의될 수는 없는 경우일때 발생합니다. 우리가 이것에 대해 접근하려고 할 때, 이것은 `undefined`를 내뱉습니다.
 
 ```javascript
-var x; // Declaration
-typeof x === 'undefined'; // Will return true
+var x; // 선언
+typeof x === 'undefined'; // true가 리턴됩니다.
 ```
 
 `not defined`는 변수가  선언될 수도 없고 정의될 수도 없는 경우입니다. 우리가 그러한 변수를 참조하려고할 때 결과는 `not defined` 입니다.
 
 ```javascript
-console.log(y);  // Output: ReferenceError: y is not defined
+console.log(y);  // 출력: ReferenceError: y is not defined
 ```
 
 ### 관련 링크:
@@ -155,33 +155,36 @@ globalVar = abc
 
 </details>
 
-## Question 5. Write a mul function which will work properly when invoked with following syntax.
+## Question 5. 다음 구문을 사용하여 호출할때 제대로 동작하는 곱셈 함수를 작성해주세요.
 
 ```javascript
-console.log(mul(2)(3)(4)); // output : 24
-console.log(mul(4)(3)(4)); // output : 48
+console.log(mul(2)(3)(4)); // 출력 : 24
+console.log(mul(4)(3)(4)); // 출력 : 48
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 function mul (x) {
-  return function (y) { // anonymous function
-    return function (z) { // anonymous function
+  return function (y) { // 익명 함수
+    return function (z) { // 익명 함수
       return x * y * z;
     };
   };
 }
 ```
 
-Here the `mul` function accepts the first argument and returns an anonymous function which then takes the second parameter and returns one last anonymous function which finally takes the third and final parameter; the last function then multiplies `x`, `y` and `z`, and returns the result of the operation.
+여기서 `mul`함수는 첫번째 인자를 받고, 두번째 인자를 취하는 익명함수를 반환하고, 마지막으로 세번째 인자를 취하는 익명함수를 반환하는 형태의 함수입니다.
 
-In Javascript, a function defined inside another function has access to the outer function's scope and can consequently return, interact with or pass on to other functions, the variables belonging to the scopes that incapsulate it.
+이때 마지막 함수는 `x`, `y`, `z`를 곱하여 그 연산 결과를 반환합니다.
 
-- A function is an instance of the Object type
-- A function can have properties and has a link to its constructor method
-- A function can be stored as a variable
-- A function can be passed as a parameter to another function
-- A function can be returned by another function
+자바스크립트에서 다른함수 안에서 정의된 함수는 외부 함수의 스코프에 접근할 수 있으며 결과적으로 이것을 캡슐화하는 범위에 속하는 변수인 다른 함수를 반환하거나 리턴할 수 있습니다.
+
+- 함수는 Object 타입의 인스턴스입니다.
+- 함수는 속성을 가질 수 있으며 생성자 메서드에 대한 링크를 가질 수 있습니다.
+- 함수는 변수로써 저장될 수 있습니다.
+- 함수는 다른 함수의 파라미터로 전달될 수 있습니다.
+- 함수는 다른 함수에 의해 리턴될 수 있습니다.
 
 </details>
 
