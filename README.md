@@ -263,11 +263,11 @@ Above implementation can also empty the array. But not recommended to use often.
 
 </details>
 
-## Question 7. How to check if an object is an array or not?
+## Question 7. 객체가 배열인지 어떻게 확인하나요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The best way to find whether an object is instance of a particular class or not using `toString` method from `Object.prototype`
+객체가 특정 클래스의 인스턴스인지 또는 `Object.prototype`에서 `toString`메서드로 사용중인지를 확인할 수 있는 가장 좋은 방법
 
 ```javascript
 var arrayList = [1 , 2, 3];
@@ -275,31 +275,33 @@ var arrayList = [1 , 2, 3];
 
 One of the best use cases of type checking of an object is when we do method overloading in JavaScript. To understand this, let's say we have a method called `greet` which can take a single string and also a list of strings. To make our `greet` method workable in both situation we need to know what kind of parameter is being passed: is it single value or list of values?
 
+객체의 타입체크 중 가장 좋은 방법 중 하나는 자바스크립트에서 메서드 오버로딩을 수행하는 경우입니다. 이를 이해하기 위해서 하나의 문자열과 하나의 문자열 목록을 얻을 수 있는 `greet` 이라는 메서드가 있다고 가정해봅시다. `greet` 이라는 메서드가 단일 값을 넘겨주는지 또는 리스트값을 넘겨주는지, 그 두 개를 모두 실행할 수 있게 하기 위해서는 어떤 종류의 매개변수가 들어오는지를 확인해야 합니다.
+
 ```javascript
 function greet(param) {
   if() {
-    // here have to check whether param is array or not
+    // param이 배열인지 아닌지를 체크해야함
   }
   else {
   }
 }
 ```
 
-However, in the above implementation it might not necessary to check the type of the array, we can check for single value string and put array logic code in else block, let see below code for the same.
+그러나 위 구현에서는 배열의 유형을 확인할 필요가 없을 수 있는데, 우리가 단일 값 문자열을 확인하고 배열 코드를 다른 블록에 넣을 수 있기 때문입니다. 아래의 코드를 살펴보겠습니다.
 
 ```javascript
  function greet(param) {
    if(typeof param === 'string') {
    }
    else {
-     // If param is of type array then this block of code would execute
+     // 만약 타입이 array라면 이 코드블록이 실행됩니다.
    }
  }
 ```
 
-Now it's fine we can go with the previous two implementations, but when we have a situation like a parameter can be `single value`, `array`, and `object` type then we will be in trouble.
+앞의 두 가지 실행은 괜찮은 방법일 수 있지만, `단일 값`, `배열`, `객체`일 경우에는 문제가 될 수 있습니다. 
 
-Coming back to checking the type of an object, As we mentioned that we can use `Object.prototype.toString`
+다시 객체의 타입 체킹으로 돌아와서 우리는 `Object.prototype.toString`을 사용할 수 있다고 언급한 바 있습니다.
 
 ```javascript
 if(Object.prototype.toString.call(arrayList) === '[object Array]') {
@@ -307,7 +309,7 @@ if(Object.prototype.toString.call(arrayList) === '[object Array]') {
 }
 ```
 
-If you are using `jQuery` then you can also used jQuery `isArray` method:
+만약 당신이 `jQuery`를 사용한다면 당신은 jQuery의 `isArray` 메소드를 사용할 수 있습니다.
 
 ```javascript
 if($.isArray(arrayList)) {
@@ -317,15 +319,15 @@ if($.isArray(arrayList)) {
 }
 ```
 
-FYI jQuery uses `Object.prototype.toString.call` internally to check whether an object is an array or not.
+jQuery는 객체가 배열인지 아닌지를 확인할때 내부적으로 `Object.prototype.toString.call`을 사용합니다.
 
-In modern browser, you can also use:
+모던 브라우저에서는, 다음과 같이 사용할 수 있습니다.
 
 ```javascript
 Array.isArray(arrayList);
 ```
 
-`Array.isArray` is supported by Chrome 5, Firefox 4.0, IE 9, Opera 10.5 and Safari 5
+`Array.isArray`는 Chrome5, Firefox 4.0, IE 9, Opera 10.5 그리고 Safari 5에서 지원 됩니다.
 
 
 </details>
