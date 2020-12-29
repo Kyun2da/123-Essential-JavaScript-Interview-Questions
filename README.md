@@ -347,7 +347,7 @@ The code above will output `0` as output. `delete` operator is used to delete a 
 
 </details>
 
-## Question 9. What will be the output of the following code?
+## Question 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var x = 1;
@@ -358,9 +358,9 @@ var output = (function() {
 
 console.log(output);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will output `1` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **global variable** of type `number`.
+`delete` 연산자는 객체의 프로퍼티를 삭제하는데 사용됩니다. `x`는 객체가 아니고 `숫자` 타입의 **전역변수** 입니다.
 
 
 </details>
