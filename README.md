@@ -273,8 +273,6 @@ Above implementation can also empty the array. But not recommended to use often.
 var arrayList = [1 , 2, 3];
 ```
 
-One of the best use cases of type checking of an object is when we do method overloading in JavaScript. To understand this, let's say we have a method called `greet` which can take a single string and also a list of strings. To make our `greet` method workable in both situation we need to know what kind of parameter is being passed: is it single value or list of values?
-
 객체의 타입체크 중 가장 좋은 방법 중 하나는 자바스크립트에서 메서드 오버로딩을 수행하는 경우입니다. 이를 이해하기 위해서 하나의 문자열과 하나의 문자열 목록을 얻을 수 있는 `greet` 이라는 메서드가 있다고 가정해봅시다. `greet` 이라는 메서드가 단일 값을 넘겨주는지 또는 리스트값을 넘겨주는지, 그 두 개를 모두 실행할 수 있게 하기 위해서는 어떤 종류의 매개변수가 들어오는지를 확인해야 합니다.
 
 ```javascript
