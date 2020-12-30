@@ -359,9 +359,9 @@ var output = (function() {
 console.log(output);
 ```
 <details><summary><b>정답</b></summary>
+위 코드는  1을 출력합니다.
 
 `delete` 연산자는 객체의 프로퍼티를 삭제하는데 사용됩니다. `x`는 객체가 아니고 `숫자` 타입의 **전역변수** 입니다.
-
 
 </details>
 
@@ -383,7 +383,7 @@ The code above will output `undefined` as output. `delete` operator is used to d
 
 </details>
 
-## Question 11. What will be the output of the following code?
+## Question 11. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var Employee = {
@@ -394,10 +394,11 @@ delete emp1.company
 console.log(emp1.company);
 ```
 
-<details><summary><b>Answer</b></summary>
-The code above will output `xyz` as output. Here `emp1` object got company as **prototype** property. delete operator doesn't delete prototype property.
+<details><summary><b>정답</b></summary>
 
-`emp1` object doesn't have **company** as its own property. you can test it `console.log(emp1.hasOwnProperty('company')); //output : false` However, we can delete company property directly from `Employee` object using `delete Employee.company` or we can also delete from `emp1` object using `__proto__` property `delete emp1.__proto__.company`.
+이 코드는 `xyz`를 출력합니다. `emp1` 객체는 객체 **프로토타입**으로써 company를 갖고있습니다. delete 연산자는 프로토타입 속성을 삭제하지 않습니다.
+
+ `emp1` 객체는 **company** 속성을 자체 속성으로 가지고 있지않습니다. 우리는 이것을`console.log(emp1.hasOwnProperty('company')); //output : false` 로 테스트 해볼 수 있습니다. 그러나 우리는 `Employee` 객체에서 직접적으로  `delete Employee.company` 메소드를 사용하여 `company` 속성을 삭제할 수 있습니다. 또는 우리는 그것을 `__proto__` 속성인 `delete emp1.__proto__.company` 를 사용하여 `emp1`객체로 부터 삭제할 수 있습니다. 
 
 
 </details>
