@@ -423,19 +423,18 @@ Clearly we can see that Chrome has its own way of displaying uninitialized index
 
 </details>
 
-## Question 13. What will be the output of the following code?
+## Question 13. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
 delete trees[3];
 console.log(trees.length);
 ```
-<details><summary><b>Answer</b></summary>
-The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
+<details><summary><b>정답</b></summary>
 
-So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
+이 코드의 결과는 `5`를 출력합니다. 우리가 배열의 삭제를 위해 `delete` 연산자를 사용했을 때, 배열 길이에는 영향을 끼치지 않습니다. 비록 `delete` 연산자를 사용하여 배열의 원소를 삭제했을 지라도 길이는 그대로 입니다.
 
-
+delete 연산자를 사용하여 배열 원소를 삭제하면 더이상 배열에는 삭제한 원소가 존재하지 않습니다.  삭제된 값은 `undefined x 1` 로 크롬에서 대체되고 인덱스 자리에 `undefined`가 위치합니다. 만약 당신이 `console.log(trees)`로 출력한다면 크롬에서는   `["xyz", "xxxx", "test", undefined × 1, "apple"]` 를 출력할 것이고 Firefox에서는  `["xyz", "xxxx", "test", undefined, "apple"]` 를 출력할 것입니다.
 
 </details>
 
