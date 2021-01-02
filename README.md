@@ -461,15 +461,15 @@ The code above will output `1, "truexyz", 2, 1` as output. Here's a general guid
 
 </details>
 
-## Question 15. What will be the output of the following code?
+## Question 15. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var z = 1, y = z = typeof y;
 console.log(y);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will print string `"undefined"` as output. According to associativity rule operator with the same precedence are processed based on their associativity property of operator. Here associativity of the assignment operator is `Right to Left` so first `typeof y` will evaluate first which is string `"undefined"` and assigned to `z` and then `y` would be assigned the value of z. The overall sequence will look like that: 
+이코드의 결과는 `"undefined"`를 출력합니다. 연관 규칙 연산자에 따르면 우선 순위가 동일한 연산자는 연산자의 속성에 따라 처리됩니다. 여기서 할당 연산자는 `오른쪽에서 왼쪽` 으로 연산 순서가 진행되어서 `typeof y`연산이 먼저 진행되고 그 후 `"undefined"`가 z에 할당되고 z의 값이 y에 할당됩니다. 전체적인 순서는 다음과 같을것입니다.
 
 ```javascript
 var z;
