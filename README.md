@@ -523,7 +523,7 @@ var foo = function bar() {
 
 </details>
 
-## Question 17a. What is the difference between declaring a function in the formats listed below?
+## Question 17a. 아래 형식으로 함수를 선언하는 방법들의 차이는 무엇일까요?
 
 ```javascript
 var foo = function() {
@@ -536,42 +536,43 @@ function bar () {
   // Some code
 }
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The main difference is that function `foo` is defined at `run-time` and is called a function expression, whereas function `bar` is defined at `parse time` and is called a function statement. To understand it better, let's take a look at the code below :
+주요한 차이는 함수 `foo`는 `run-time`에 정의됩니다. 그리고 이것을 function expression이라고 부릅니다. 반면에 함수 `bar`는 `parse time`에 실행됩니다. 또한 이것은 function statement라고 불립니다. 이것을 좀더 잘 이해하기 위해서 아래 코드를 살펴봅시다.
 
 ```javascript
-// Run-Time function declaration
-  foo(); // Call foo function here, It will give an error
+// Run-Time 함수 선언
+  foo(); // foo 함수를 여기서 호출하면 에러가 날 것 입니다.
   var foo = function() {
     console.log("Hi I am inside Foo");
   };
 ```
 
 ```javascript
-// Parse-Time function declaration
-bar(); // Call bar function here, It will not give an Error
+// Parse-Time 함수 선언
+bar(); // bar함수를 여기에 호출하면 이것은 에러가 나지 않을 것입니다.
 function bar() {
   console.log("Hi I am inside Foo");
 }
 ```
 </details>
 
-## Question 17b. What is the output of the following?
+## Question 17b. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 bar();
 (function abc(){console.log('something')})();
 function bar(){console.log('bar got called')};
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be :
+
+이것의 정답은 다음과 같이 될 것입니다.
 ``` 
 bar got called
 something
 ```
-Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
+구문분석 시간동안 함수가 먼저 호출되고  정의되기때문에 JS 엔진은 가능한 구문분석 시간 정의를 찾고 실행 루프를 시작하려고 합니다. 이는 정의가 다른 함수를 게시하더라도  함수를 먼저 호출한다는 의미입니다. 
 
 </details>
 
