@@ -617,7 +617,7 @@ foo(); // Now foo is defined here
 
 </details>
 
-## Question 19. What will be the output of the following code?
+## Question 19. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var salary = "1000$";
@@ -630,22 +630,9 @@ var salary = "1000$";
   console.log("My New Salary " + salary);
 })();
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will output: `undefined, 5000$` because of hoisting. In the code presented above, you might be expecting `salary` to retain it values from outer scope until the point that `salary` was re-declared in the inner scope. But due to `hoisting` salary value was `undefined` instead. To understand it better have a look of the following code, here `salary` variable is hoisted and declared at the top in function scope. When we print its value using `console.log` the result is `undefined`. Afterwards the variable is redeclared and the new value `"5000$"` is assigned to it.
-
-```javascript
-var salary = "1000$";
-
-(function () {
-  var salary = undefined;
-  console.log("Original salary was " + salary);
-
-  salary = "5000$";
-
-  console.log("My New Salary " + salary);
-})();
-```
+다음 코드의 정답은 다음과 같을 것입니다 : 호이스팅 문제 때문에 `undefined, 5000$`을 출력합니다. 위 코드에서, `salary`가 내부 범위에서 다시 선언될 때까지 `salary`가 외부범위로부터 값을 유지할 것으로 예상할 수 있습니다. 그러나 `호이스팅` 때문에 salary 값은 `undefined` 입니다. 다음의 코드를 더 잘 이해하기 위해, 여기 `salary` 변수는 함수 범위의 맨 위에 호이스팅되고 선언됩니다. 우리가 그 값을 `console.log`를 사용하여 출력할 때 그 값은 `undefined`가 됩니다. 이후에 변수는 다시 선언되고 새로운 값은 `"5000$"`로 할당됩니다.
 
 </details>
 
@@ -678,7 +665,7 @@ Ref Link: [http://stackoverflow.com/questions/2449254/what-is-the-instanceof-ope
 
 </details>
 
-## Question 21. Calculate the length of the associative array
+## Question 21. 연관 배열의 길이를 계산하기
 
 ```javascript
 var counterArray = {
@@ -687,21 +674,21 @@ var counterArray = {
 };
 counterArray["C"] = 1;
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-First of all, in the case of JavaScript an associative array is the same as an object. Secondly, even though there is no built-in function or property available to calculate the length/size an object, we can write such function ourselves.
+먼저 자바스크립트에서 연관배열은 객체와 같습니다. 두번째로 객체의 길이/크기를 계산하는데 사용할 수 있는 내장함수나 속성이 없더라도, 이러한 함수를 직접 작성할 수 있습니다.
 
-#### Method 1
+#### 방법 1
 
-`Object` has `keys` method which can be used to calculate the length of object.
+`Object`는 `keys` 메소드를 가지고 있고 오브젝트의 길이를 계산하기 위해 사용됩니다.
 
 ```javascript
-Object.keys(counterArray).length; // Output 3
+Object.keys(counterArray).length; // 3 출력
 ```
 
-#### Method 2
+#### 방법 2
 
-We can also calculate the length of object by iterating through the object and by doing a count of own property of object. This way we will ignoge the properties that came from the object's prototype chain:  
+우리는 또한 객체를 반복하면서 객체의 프로퍼티의 개수를 세면서 객체의 길이를 계산할 수 있습니다. 이 방법은 객체의 프로토타입 체인에서 가져온 속성을 무시할 수 있습니다. 
 
 ```javascript
 function getLength(object) {
@@ -714,17 +701,17 @@ function getLength(object) {
 }
 ```
 
-#### Method 3 
+#### 방법 3 
 
-All modern browsers (including IE9+) support the [`getOwnPropertyNames`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) method, so we can calculate the length using the following code: 
+모든 모던 브라우저들 (IE9 포함) 은 [`getOwnPropertyNames`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) 메소드를 지원합니다. 그래서 우리는 다음과 같은 코드로 길이를 계산할 수 있습니다.
 
 ```javascript
-Object.getOwnPropertyNames(counterArray).length; // Output 3
+Object.getOwnPropertyNames(counterArray).length; // 3 출력
 ```
 
-#### Method 4
+#### 방법 4
 
-[Underscore](https://underscorejs.org/#size) and [lodash](https://lodash.com/docs/4.17.10#size) libraries have the method `size` dedicated to calculate the object length. We don't recommend to include one of these libraries just to use the `size` method, but if it's already used in your project - why not? 
+[Underscore](https://underscorejs.org/#size) 와 [lodash](https://lodash.com/docs/4.17.10#size) 라이브러리들은 객체 길이를 계산하기 위해 `size` 메소드를 갖고 있습니다. 우리는  단지 이 메소드를 사용하기 위해 라이브러리를 포함 하는 것은 추천하지 않지만 만약 당신이 이미 프로젝트에 이 라이브러리를 사용하고 있다면 사용하는 것도 괜찮습니다.
 
 ```javascript
 _.size({one: 1, two: 2, three: 3});
