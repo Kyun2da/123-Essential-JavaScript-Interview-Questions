@@ -780,7 +780,7 @@ The primary role of the constructor function is to initialize the object.
 
 </details>
 
-## Question 23. What would be the output of the following code?
+## Question 23. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function User(name) {
@@ -791,14 +791,14 @@ var person = new User("xyz")["location"] = "USA";
 console.log(person);
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output of above code would be `"USA"`. Here `new User("xyz")` creates a brand new object and created property `location` on that and `USA` has been assigned to object property location and that has been referenced by the person.
+위 코드의 결과는 `"USA"`입니다. `new User("xyz")`는 새로운 객체를 생성하고 `location`속성을 생성해 `"USA"` 를 location 속성에 할당합니다. 그리고 그 객체는 person에 의해 참조됩니다.
 
-Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's `"USA"`.
- Then it will be assigned to person. 
+이제 `new User("xyz")`를 `foo`라고 해보겠습니다. `"USA"`값은 `foo["location"]`에 할당될 것입니다. 그러나  [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) 에 따르면  할당은 가장 오른쪽 값을 반환하게 될 것이라고 되어있습니다. : 여기의 경우엔 `"USA"`가 되겠네요. 그럼 person에 "USA"가 할당될 것입니다.
 
- To better understand what's going on here, try to execute this code in console, line by line:
+이것이 어떻게 돌아가는지 좀더 잘 이해하기 위해서, 여기 아래 콘솔에 있는 코드를 한줄한줄씩 실행해봅시다. 
+
  ```javascript
 function User(name) {
   this.name = name || "JsGeeks";
@@ -807,8 +807,7 @@ function User(name) {
 var person;
 var foo = new User("xyz");
 foo["location"] = "USA";
-// the console will show you that the result of this is "USA"
-
+// foo는 다음과 같은 객체로 변화해있습니다. User {name: "xyz", location: "USA"}
  ```
 
 
