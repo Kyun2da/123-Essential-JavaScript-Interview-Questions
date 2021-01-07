@@ -825,35 +825,37 @@ As of 2017, Service Workers are not supported in IE and Safari.
 
 </details>
 
-## Question 25. What is the difference between a method and a function in javascript?
+## Question 25. 자바스크립트에서 function과 method의 차이는 무엇인가요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-In JS, that difference is quite subtle. A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. It can be passed data to operate on (i.e. parameter) and can optionally return data (the return value).
+js에서 그차이는 미묘합니다. function은 어떤 object와도 연결되지 않고 어떤 object안에도 정의되지 않은 이름 및 함수로 호출되는 코드조각입니다.
+
+이것은 데이터를 전달하여 작동시킬 수 있으며(즉, 파라미터) 선택적으로 데이터를 반환할 수 있습니다(반환 값).
 
 ```javascript
-// Function statement
+// 함수 명세
 function myFunc() {
-  // Do some stuff;
+  // 무엇인가 일을 한다;
 }
 
-// Calling the function
+// 함수 호출
 myFunc();
 ```
 
-Here myFunc() function call is not associated with object hence not invoked through any object.
+여기서 myFunc() 함수 호출이 개체와 연결되어 있지 않으므로 개체를 통해 호출되지 않습니다.
 
-A function can take a form of immediately invoked function expression (IIFE):
+함수는 즉시 호출되는 함수 식(IIFE)의 형태를 취할 수 있습니다.
 
 ```javascript
 
-// Anonymous Self-invoking Function
+// 자신을 호출
 (function() {
-  // Do some stuff;
+  // 무엇인가 일을 한다;
 })();
 ```
 
-Finally there are also arrow functions: 
+마지막으로 화살표 함수도 있습니다.
 
 ```javascript
 const myFunc = arg => {
@@ -861,11 +863,11 @@ const myFunc = arg => {
 } 
 ```
 
-A method is a piece of code that is called by its name and that is associated with the object. Methods are functions. When you call a method like this `obj1.myMethod()`, the reference to `obj1` gets assigned (bound) to `this` variable. In other words, the value of `this` will be `obj1` inside `myMethod`. 
+method는 코드이름으로 호출되고 object와 연결된 코드 조각입니다. method는 함수입니다. `obj1.myMethod()`같은 방식으로 method를 호출할때 `obj1`에 대한 참조가 `this` 변수에 할당됩니다. 다른말로 `this`의 값은 `obj1`안의 `myMethod`입니다. 
 
-Here are some examples of methods: 
+여기 method의 예제가 있습니다.
 
-##### Example 1
+##### 예제 1
 ```javascript
 var obj1 = {
   attribute: "xyz",
@@ -874,14 +876,14 @@ var obj1 = {
   }
 };
 
-// Call the method
+// method 호출
 obj1.myMethod();
 ```
 
-Here `obj1` is an object and `myMethod` is a method which is associated with `obj1`.
+`obj1`은 object이고 `myMethod`는 `obj1`과 연관된 method 입니다.
 
-##### Example 2
-In ES6 we have classes. There the methods will look like this:
+##### 예제 2
+ES6에서 우리는 class를 갖고 있습니다. method는 아래 처럼 보일 것 입니다.
 
 ```javascript
 class MyAwesomeClass {
@@ -894,7 +896,7 @@ const obj1 = new MyAwesomeClass();
 obj1.myMethod();
 ```
 
-Understand: the method is not some kind of special type of a function, and it's not about how you declare a function. It's the way we **call** a function. Look at that: 
+이해하기 : method는 함수의 특별한 타입의 함수가 아니며 함수를 선언하는 방법에 대한 것도 아닙니다. 이것은 단지 우리가 함수를 **호출** 하는 방법입니다. 아래를 보시죠.
 
 ```javascript
 var obj1 = {
@@ -903,12 +905,12 @@ var obj1 = {
 var myFunc = function () {
   console.log("Hi there", this);
 };
-// let's call myFunc as a function: 
-myFunc(); // will output "Hi there undefined" or "Hi there Window"
+// function으로써 myFunc를 호출하기
+myFunc(); // "Hi there undefined" 또는 "Hi there Window"를 출력할 것입니다.
  
 obj1.myMethod = myFunc;
-//now we're calling myFunc as a method of obj1, so this will point to obj1
-obj1.myMethod(); // will print "Hi there" following with obj1. 
+// 이제 우리는 obj1의 method로써 myFunc를 호출하겠습니다. 이렇게 obj1을 가리켜줍니다.
+obj1.myMethod(); //  "Hi there"을 출력할 것입니다. this는 {prop1: "buddy", myMethod: ƒ} 이렇게 나옵니다.
 
 ```
 
