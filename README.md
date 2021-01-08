@@ -985,95 +985,94 @@ code, it helps to prevent polluting the global scope and provide the module inte
 
 </details>
 
-## Question 27. Describe Singleton Pattern In JavaScript
-<details><summary><b>Answer</b></summary>
+## Question 27. 자바스크립트에서의 싱글톤 디자인 패턴
+<details><summary><b>정답</b></summary>
 
-The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
+싱글톤 패턴은 종종 자바스크립트 디자인 패턴으로 사용됩니다. 이 방법은 한개의 변수를 통해 액세스할 수 있는 논리 단위로 코드를 감싸는 방법입니다. 싱글톤 디자인 패턴은 애플리케이션의 수명 동안 하나의 객체 인스턴스만 필요할 때 사용됩니다. 자바스크립트에서 싱글톤 패턴은 여러 용도로 사용될 수 있으며, 네임스페이싱을 위해서도 사용될 수 있습니다.이 패턴은 페이지의 전역 변수의 숫자를 줄이고(전역 공간을 오염시키지 않도록), 코드를 일관된 방식으로 구성함으로써 페이지의 가독성과 유지보수를 증가시킵니다.
 
-There are two important points in the traditional definition of Singleton pattern:
-- There should be only one instance allowed for a class and
-- We should allow global point of access to that single instance
+여기 싱글톤 패턴의 전통적인 정의의 두가지 중요한 점이 있습니다:
 
-Let me define singleton pattern in JavaScript context:
+- 한 클래스에 대해 하나의 인스턴스만 허용되어야 합니다.
+- 단일 인스턴스에 대한 글로벌 액세스 지점을 허용해야 합니다.
 
-> It is an object that is used to create namespace and group together a related set of methods and attributes (encapsulation) and if we allow to initiate then it can be initiated only once.
+자바스크립트 문맥으로 싱글톤 패턴을 이해해 봅시다:
 
-In JavaScript, we can create singleton though object literal. However, there is some another way but that I will cover in next post.
+> 이 개체는 네임스페이스를 만들고 관련 메서드 및 속성 집합(캡슐화)을 그룹화하는 데 사용되는 개체이며, 시작을 허용할 경우 한 번만 시작할 수 있습니다.
 
-A singleton object consists of two parts: The object itself, containing the members (Both methods and attributes) within it, and global variable used to access it. The variable is global so that object can be accessed anywhere in the page, this is a key feature of the singleton pattern.
+자바스크립트에서, 우리는 객체 리터럴을 통해 싱글톤을 만들 수 있습니다. 여기 몇몇 다른 방법이 있지만 다음 포스트때 그 방법을 다룰것입니다.
 
-**JavaScript: A Singleton as a Namespace**
+싱글톤 객체는 두 부분으로 구성됩니다. 개체 자체로서, 개체 내의 구성원(메소드와 속성)과 개체에 액세스하는 데 사용되는 글로벌 변수를 포함합니다. 변수는 전역적이어서 페이지의 모든 위치에서 객체에 액세스할 수 있습니다. 이 변수는 싱글톤 패턴의 주요 기능입니다.
 
-As I have already stated above that singleton can be used to declare Namespace in JavaScript. NameSpacing is a large part of responsible programming in JavaScript. Because everything can be overwritten, and it is very easy to wipe out variable by mistake or a function, or even a class without even knowing it. A common example which happens frequently when you are working with another team member parallel,  
+**자바스크립트: 네임스페이스로써의 싱글톤**
+
+위에서 말한 바와 같이, 자바스크립트에서 네임스페이스를 선언하는 데 싱글톤을 사용할 수 있습니다. NameSpacing은 JavaScript에서 중요한 프로그래밍의 부분입니다. 왜냐하면 실수하여 모든 것을 덮어쓸 수 있고,  변수나 함수, 심지어 클래스도 모르는 사이에 삭제하기가 매우 쉽기 때문입니다. 다른 팀원과 병렬로 작업할 때 자주 발생하는 일반적인 예입니다.
 
 ```javascript
 function findUserName(id) {
 
 }
 
-/* Later in the page another programmer
-added code */
+/* 후에 다른 프로그래머가 이부분을 추가할 것입니다. */
 var findUserName = $('#user_list');
 
-/* You are trying to call :( */
+/* 당신은 이부분을 호출하길 원합니다. :( */
 console.log(findUserName())
 ```
 
-One of the best ways to prevent accidentally overwriting variable is to namespace your code within a singleton object.
+실수로 변수를 덮어쓰지 않도록 하는 가장 좋은 방법 중 하나는 싱글톤 개체 내에서 코드 네임스페이스를 지정하는 것입니다.
 
 ```javascript
 /*  Using Namespace */
 
 var MyNameSpace = {
   findUserName : function(id) {},
-  // Other methods and attribute go here as well
+  // 다른 메소드와 함수 역시 여기에 선언합니다.
 }
 
-/* Later in the page another programmer
-added code */
+/*  후에 다른 프로그래머가 이부분을 추가할 것입니다.  */
 var findUserName = $('#user_list');
 
-/* You are trying to call and you make this time workable */
+/* 당신은 이부분을 호출하길 원합니다. */
 console.log(MyNameSpace.findUserName());
 ```
 
-### Singleton Design Pattern Implementation
+### 싱글톤 디자인 패턴 구현
 
 ```javascript
-/* Lazy Instantiation skeleton for a singleton pattern */
+/* 싱글 톤 패턴에 대한 지연 인스턴스화 스켈레톤 */
 
 var MyNameSpace = {};
 MyNameSpace.Singleton = (function() {
 
-  // Private attribute that holds the single instance
+  // 단일 인스턴스를 보유하는 private 속성
   var singletonInstance;  
 
-  // All of the normal code goes here
+  // 모든 일반 코드가 여기에 있습니다.
   function constructor() {
-    // Private members
+    // Private 멤버들
     var privateVar1 = "Nishant";
     var privateVar2 = [1,2,3,4,5];
 
     function privateMethod1() {
-      // code stuff
+      // 코드
     }
 
     function privateMethod1() {
-      // code stuff
+      // 코드
     }
 
     return {
       attribute1 : "Nishant",
       publicMethod: function() {
-        alert("Nishant");// some code logic
+        alert("Nishant");// 코드
       }
     }
   }
 
   return {
-    // public method (Global access point to Singleton object)
+    // public 메서드 (Singleton 개체에 대한 전역 액세스 지점)
     getInstance: function() {
-      //instance already exist then return  
+      // 인스턴스가 이미 존재하고 return
       if(!singletonInstance) {
         singletonInstance = constructor();
       }
@@ -1083,11 +1082,11 @@ MyNameSpace.Singleton = (function() {
 
 })();   
 
-// getting access of publicMethod
+// publicMethod에 액세스하기
 console.log(MyNamespace.Singleton.getInstance().publicMethod());
 ```
 
-The singleton implemented above is easy to understand. The singleton class maintains a static reference to the lone singleton instance and return that reference from the static getInstance() method.
+위에서 구현한 싱글톤은 이해하기 쉽습니다. 싱글톤 클래스는 싱글톤 인스턴스에 대한 정적 참조를 유지하고 정적 getInstance() 메서드에서 해당 참조를 반환합니다.
 
 </details>
 
