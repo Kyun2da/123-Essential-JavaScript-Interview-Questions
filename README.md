@@ -1160,12 +1160,13 @@ employee.getName = function(){
 
 </details>
 
-## Question 29. Write a function called deepClone which takes an object and creates a object copy of it.
+## Question 29. 객체를 가져와서 객체의 복사본을 만드는 deepClone 함수를 작성해봅시다.
 
 ``` javascript
 var newObject = deepClone(obj);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 function deepClone(object){
@@ -1181,7 +1182,7 @@ function deepClone(object){
 }
 ```
 
-**Explanation:** We have been asked to do deep copy of object so What's basically it's mean ??. Let's understand in this way you have been given an object `personalDetail` this object contains some property which again a type of object here as you can see `address` is an object and `phoneNumber` in side an `address` is also an object. In simple term `personalDetail` is nested object(object inside object). So Here deep copy means we have to copy all the property of `personalDetail` object including nested object.
+**설명:** 우리는 먼저 객체의 deep copy의 의미가 무엇인지 부터 알아야 합니다. 주어진 `personalDetail`객체는 `address`객체와 그 일부인 `phoneNumber`객체를 살펴보도록 합시다. 간단한 `personalDetail` 은 중첩된 객체(객체안에 객체)입니다. 여기 deep copy는 중첩된 객체를 포함하여 `personalDetail`객체의 전부를 복사해야 하는 것을 의미합니다.
 
 ```javascript
 var personalDetail = {
@@ -1196,7 +1197,7 @@ var personalDetail = {
 	}
 }
 ```
-So when we do deep clone then we should copy every property (including the nested object).
+그래서 우리가 deep clone을 할 때 우리는 모든 속성을 복사해야 합니다.(중첩된 객체를 포함하여)
 
 </details>
 
