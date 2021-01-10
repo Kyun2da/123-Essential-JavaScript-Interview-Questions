@@ -1233,15 +1233,16 @@ if(typeof person.salary === 'undefined'){
 ```
 </details>
 
-## Question 31. Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object. 
+## Question 31. 오브젝트를 가져와서 오브젝트의 복사본을 만들지만 깊은 속성은 복사하지 않는 `Clone` 함수를 작성해 보세요.
 
 ```javascript
    var objectLit = {foo : 'Bar'}; 
-	var cloneObj = Clone(obj); // Clone is the function which you have to write 
-	console.log(cloneObj === Clone(objectLit)); // this should return false
-	console.log(cloneObj == Clone(objectLit)); // this should return true
+	var cloneObj = Clone(obj); // Clone은 당신이 작성해야하는 함수입니다.
+	console.log(cloneObj === Clone(objectLit)); // 이것은 false를 리턴해야합니다.
+	console.log(cloneObj == Clone(objectLit)); // 이것은 true를 리턴해야합니다.
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 function Clone(object){
