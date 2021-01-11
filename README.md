@@ -1275,11 +1275,11 @@ Be sure that you can implement the promise, read [one of the articles on a topic
 
 </details>
 
-## Question 33. How to check whether a key exist in a JavaScript object or not.
+## Question 33. 어떻게 자바스크립트 객체에 키가 존재하는지 체크해야 하나요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-Let say we have `person` object with property **name** and **age**
+ **name** 과 **age** 속성을 갖는 `person` 객체가 있다고 해봅시다.
 
 ```javascript
 var person = {
@@ -1287,31 +1287,29 @@ var person = {
 	age: 24
 }
 ```
-Now we want to check whether `name` property exist in `person` object or not ?
+이제 `person` 객체에 `name`속성이 있는지 어떻게 확인해야 할까요?
 
-In JavaScript object can have own property, in above example name and age is own property of person object. Object also have some of inherited property of base object like toString is inherited property of person object.
+자바스크립트에서 객체는 자신의 프로퍼티를 가질 수 있습니다. 위의 예에서 name 과 age는 person 객체의 속성입니다. 또한 객체는 toString 과 같은 기본 개체의 상속된 속성이 있기도 합니다.
 
-So how we will check whether property is own property or inherited property. 
+이제 어떻게 우리가 속성이 자신의 속성인지 상속된 속성인지 체크하는 방법에 대해 알아보도록 하겠습니다.
 
-Method 1: We can use `in` operator on objet to check own property or inherited property. 
+방법 1: 우리는 `in`연산자를 사용하여 객체가 자신의 속성인지 상속된 속성인지 체크할 수 있습니다.
 
 ```javascript
-console.log('name' in person); // checking own property print true 
-console.log('salary' in person); // checking undefined property print false
+console.log('name' in person); // 자신의 속성이면 true를 출력합니다.
+console.log('salary' in person); // undefined를 출력합니다.
 ```
-`in` operator also look into inherited property if it doesn't find property defined as own property. For instance If I check existence of toString property as we know that we haven't declared this property on person object so `in` operator look into there base property.
-
-Here 
+`in` 연산자는 또한 자신의 속성으로써 정의된 속성을 찾지 못한다면 상속된 속성을 찾아봅니다. 예를들어 만약 toString 프로퍼티의 존재를 확인하려 한다면 먼저 객체의 기본 속성안을 들여다 본다음 기본 속성안에 선언되지 않았으므로 그 다음으로 상속된 속성을 살펴봅니다.
 
 ```javascript
-console.log('toString' in person); // Will print true
+console.log('toString' in person); // true를 출력합니다.
 ```
-If we want to test property of object instance not inherited properties then we will use `hasOwnProperty` method of object instance.
+만약 우리가 상속되지 않은 속성만을 검사하고 싶다면 `hasOwnProperty`를 쓰면 됩니다.
 
 ```javascript
-console.log(person.hasOwnProperty('toString')); // print false
-console.log(person.hasOwnProperty('name')); // print true
-console.log(person.hasOwnProperty('salary')); // print false
+console.log(person.hasOwnProperty('toString')); // false 를 출력합니다.
+console.log(person.hasOwnProperty('name')); // true를 출력합니다
+console.log(person.hasOwnProperty('salary')); // false를 출력합니다.
 ```
 
 </details>
