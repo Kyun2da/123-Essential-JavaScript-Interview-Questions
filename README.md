@@ -1341,7 +1341,7 @@ Further reading: [great blogpost on ariya.io](https://ariya.io/2014/05/the-curio
 
 </details>
 
-## Question 35. Fix the bug using ES5 only
+## Question 35. ES5 만 사용하여 버그를 수정하세요.
 
 ```javascript
 var arr = [10, 32, 65, 2];
@@ -1351,11 +1351,11 @@ for (var i = 0; i < arr.length; i++) {
   }, 3000);
 }
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-For ES6, you can just replace `var i` with `let i`. 
+ES6에서는 `var i` 를 `let i` 로 대체하면 버그를 해결할 수 있습니다..
 
-For ES5, you need to create a function scope like here:
+ES5에서는 함수 스코프를 아래와 같이 생성해야 합니다.
 
 ```javascript 
 var arr = [10, 32, 65, 2];
@@ -1368,7 +1368,7 @@ for (var i = 0; i < arr.length; i++) {
 }
 ```
 
-This can also achieve by forEach (allows you to keep that variable within the forEach’s scope)
+이것은 forEach로도 가능합니다.(forEach의 스코프 안에서도 변수를 유지하도록 허용할 수 있습니다.)
 
 ```javascript 
 var arr = [10, 32, 65, 2];
