@@ -1476,13 +1476,13 @@ function isArray(value) {
 
 </details>
 
-## Question 37. Best way to detect reference values of any type in JavaScript ?
+## Question 37. 자바스크립트에서 모든 유형의 참조 값을 검색하는 가장 좋은 방법은 무엇인가요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- In Javascript Object are called as reference type, Any value other then primitive is definitely a reference type. There are several built-in reference type such as **Object**, **Array**, **Function**, **Date**, **null** and **Error**.
+자바스크립트에서 객체는 참조타입으로써 호출됩니다. 원시값이 아닌 다른값들은 분명히 참조값입니다. **Object**, **Array**, **Funciton**, **Date**, **null**, **Error** 와 같은 기본 제공 참조 유형이 있습니다.
 
-Detecting object using `typeof` operator
+`typeof` 연산자를 사용하여 객체를 감지하는 방법
 
 ```javascript
 console.log(typeof {});           // object
@@ -1492,20 +1492,20 @@ console.log(typeof null);         // object
 console.log(typeof new RegExp()); // object
 console.log(typeof new Date());   // object
 ```
-But the downside of using typeof operator to detect an object is that typeof returns `object` for `null` (However this is fact that null is an object in JavaScript).
+그러나 typeof 연산자를 사용하여 객체를 감지하는 단점은 `null`이 `object`라고 리턴한다는 점입니다. (이것은 자바스크립트에서 null이 객체라는 사실입니다.)
 
-The best way to detect an object of specific reference type using `instanceof` operator.
+참조 타입을 검사하는 가장 좋은 방법은 `instanceof` 연산자를 사용하는 것입니다.
 
->Syntax : **value** instanceof **constructor**   
+>문법 : **value** instanceof **constructor**   
 
 ```javascript
-//Detecting an array
+//array 감지하기
 if(value instanceof Array){
 	console.log("value is type of array");
 }
 ```
 ```javascript
-// Employee constructor function
+// Employee 생성자 함수
 function Employee(name){
 	this.name = name; // Public property
 }
@@ -1514,7 +1514,7 @@ var emp1 = new Employee('John');
 
 console.log(emp1 instanceof Employee); // true
 ```
-`instanceof` not only check the constructor which is used to create an object but also check it's prototype chain see below example.
+아래의 예를 참조하면 `instanceof` 는 객체에 사용되는 생성자를 확인할 뿐만 아니라 프로토타입 체인을  확인할 수 있습니다.
 
 ```javascript
 console.log(emp1 instanceof Object); // true
