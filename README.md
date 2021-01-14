@@ -1575,11 +1575,11 @@ Object created in this manner give you full control over newly created object. Y
 
 </details>
 
-## Question 39. How to use constructor functions for inheritance in JavaScript?
+## Question 39. 자바스크립트에서 상속을 사용하려면 생성자 함수를 어떻게 사용해야 하나요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-Let say we have `Person` class which has name, age, salary properties and **incrementSalary()** method.
+name, age, salary 속성을 갖고 있고 **incrementSalary** 메소드를 갖고있는 `Person` 함수를 만들어봅시다.
 
 ```javascript
 function Person(name, age, salary) {
@@ -1592,7 +1592,7 @@ function Person(name, age, salary) {
 }
 ```
 
-Now we wish to create Employee class which contains all the properties of Person class and wanted to add some additional properties into Employee class.
+이제 우리는 Person class의 속성을 모두 포함하는 Employee class를 만들고 싶다고 해보죠. 그리고 Employee 속성에 추가적으로 몇몇 속성들을 좀더 추가하고 싶습니다.
 
 ```javascript
 function Employee(company){
@@ -1602,7 +1602,7 @@ function Employee(company){
 //Prototypal Inheritance 
 Employee.prototype = new Person("Nishant", 24,5000);
 ```
-In the example above, **Employee** type inherits from **Person**. It does so by assigning a new instance of `Person` to `Employee` prototype. After that, every instance of `Employee` inherits its properties and methods from `Person`.
+위의 예에서 **Employee**타입은 **Person** 으로부터 상속받았습니다. 이것은 `Employee` 프로토타입에 `Person`의 새로운 인스턴스를 할당함으로써 수행됩니다. 그후 모든 `Employee` 인스턴스는 `Person`으로부터 속성과 메소드를 상속받습니다. 
 
 ```javascript
 //Prototypal Inheritance 
@@ -1614,27 +1614,27 @@ console.log(emp1 instanceof Person); // true
 console.log(emp1 instanceof Employee); // true
 ```
 
-Let's understand Constructor inheritance 
+이제 Constructor inheritance를 이해해보도록 하겠습니다.
 
 ```javascript
-//Defined Person class
+//Person class 정의
 function Person(name){
 	this.name = name || "Nishant";
 }
 
 var obj = {};
 
-// obj inherit Person class properties and method 
+// obj는 Person class 속성과 메소드를 상속받습니다.
 Person.call(obj); // constructor inheritance
 
 console.log(obj); // Object {name: "Nishant"}
 ```
-Here we saw calling **Person.call(obj)** define the name properties from `Person` to `obj`.
+여기 우리가 **Person.call(obj)**를 호출하는 것을 볼 수 있습니다. 이것은 `Person`으로부터 `obj`에게 이름 속성을 정의합니다. 
 
 ```javascript
 console.log(name in obj); // true
 ```
-Type-based inheritance is best used with developer defined constructor function rather than natively in JavaScript. In addition to this also allows flexibility in how we create similar type of object.
+Type-based 상속은 javascript에서 기본적으로 사용되는 것이 아니라 개발자가 정의한 생성자 함수와 같이 사용하는 것이 좋습니다. 이와 더불어 유사한 유형의 객체를 생성하는 방법도 유연하게 허용됩니다.
 
 </details>
 
