@@ -1752,21 +1752,22 @@ delete employee.name;  // fails silently unless it's in strict mode
 
 </details>
 
-## Question 41. Write a log function which will add prefix `(your message)` to every message you log using console.log ? 
- For example, If you log `console.log("Some message")` then output should be **(your message) Some message**
+## Question 41. console.log에 접두사로 `(당신이 쓰고 싶은 메시지)`를 출력하기 위해서는 어떻게 로그함수를 써야할까요? 
+예를 들어, 만약 당신이 `console.log("Some message")`를 로그로 찍으려고 한다면 그때 출력은 **(당신이 쓰고 싶은 메시지) Some message**가 되어야만 합니다.
 
- <details><summary><b>Answer</b></summary>
+ <details><summary><b>정답</b></summary>
 
-Logging error message or some informative message is always required when you dealing with client side JavaScript using console.log method. Some time you want to add some prefix to identify message generated log from your application hence you would like to prefix your app name in every console.log. 
 
-A general way to do this keep adding your app name in every console.log message like 
+에러메시지를 로그로 찍거나 몇몇 정보 메시지들은 항상 당신이 console.log를 사용하면서 자바스크립트에서 다룰때 필요합니다. 경우에 따라 프로그램에서 생성된 메시지 로그를 식별하기 위해 console.log에  접두사를 추가하고 싶을때가 있을 것입니다.
+
+이렇게 하는 일반적인 방법은 보통 다음과 같이 모든 console.log 에 다음과 같이 할 것입니다.
 
 ```javascript
 console.log('your app name' + 'some error message');
 ```
-But doing in this way you have to write your app name everytime when you log message using console.
+그러나 이러한 방식은 모든 로그에 적어줘야 하므로 비효율적입니다.
 
-There are some best way we can achieve this 
+여기 몇몇 성공적인 방법들이 있습니다.
 
 ```javascript
 function appLog() {
@@ -1776,7 +1777,7 @@ function appLog() {
 }
 
 appLog("Some error message"); 
-//output of above console: 'your app name Some error message'
+//콘솔에 다음과 같이 찍힙니다: 'your app name Some error message'
 ```
 
 </details>
