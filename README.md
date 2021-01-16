@@ -1809,70 +1809,71 @@ For example: We can create string using string literal and using String construc
 ```
 </details>
 
-## Question 43 . What is typical use case for anonymous function in JavaScript ?
+## Question 43 . 자바스크립트에서 익명함수의 사용 사례는 무엇이 있을까요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- Anonymous functions basically used in following scenario.
 
-1. No name is needed if function is only used in one place, then there is no need to add a name to function.
+익명함수는 기본적으로 다음과 같은 시나리오에 사용됩니다.
 
-	Let's take the example of setTimeout function 
-	
-	```javascript
-	setTimeout(function(){
-		alert("Hello");
-	},1000);
-	```
-	Here there is no need of using named function when we are sure 	that function which will alert `hello` would use only once in 	application.
+1. 함수가 한곳에서만 사용되는 경우에는 이름이 필요없으므로, 함수에 이름을 추가할 필요가 없음
 
-2. Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
+  setTimeout 함수의 예를 살펴봅시다.
 
-	Let's take a example of event handler. Notify event of particular 	type (such as click) for a given object. 
-	
-	Let say we have HTML element (button) on which we want to add click event and when user do click on button we would like to execute some logic.
-	
-	```html
-	<button id="myBtn"></button>
-	```
-	Add Event Listener 
-	
-	```javascript
-	var btn = document.getElementById('myBtn');
-	btn.addEventListener('click', function () {
-	  alert('button clicked');
-	});
-	```
-	
-	Above example shows used of anonymous function as a callback function in event handler.
-	
-3. Passing anonymous function as a parameter to calling function.
-	
-	Example: 
-	
-	```javascript
-	// Function which will execute callback function
-	function processCallback(callback){
-		if(typeof callback === 'function'){
-			callback();
-		}
-	}
-	
-	// Call function and pass anonymous function as callback 
-	processCallback(function(){
-		alert("Hi I am anonymous callback function");
-	});
-	```
-The best way to make a decision for using anonymous function is to ask the following question:
+  ```javascript
+  setTimeout(function(){
+  	alert("Hello");
+  },1000);
+  ```
+  여기서는 `hello`알림 기능이 어플리케이션에서 한번만 사용되는 것을 확신한다면 이름을 사용할 필요가 없습니다.
 
- Will the function which I am going to define, be used anywhere else?
+2. 익명함수는 인라인으로 선언되고 인라인 함수는 부모의 범위에서 변수를 엑세스 할 수 있다는 장점이 있음
 
-If your answer is yes then go and create named function rather anonymous function.
+  이벤트 핸들러의 예제를 살펴봅시다. 주어진 오브젝트에 대해 특정 유형(예: 클릭) 이벤트를 알립니다. 
 
-**Advantage of using anonymous function:**
+  클릭 이벤트를 추가하고자 하는 HTML 요소(버튼)이 있다고 가정하고, 사용자가 버튼을 클릭할 때 로직을 실행하고자 합니다.
 
-1. It can reduce a bit of code, particularly in recursive function and in callback function.
-2.  Avoid needless global namespace pollutions.
+  ```html
+  <button id="myBtn"></button>
+  ```
+  이벤트 리스너를 추가합니다. 
+
+  ```javascript
+  var btn = document.getElementById('myBtn');
+  btn.addEventListener('click', function () {
+    alert('button clicked');
+  });
+  ```
+
+  위의 예는 이벤트 핸들러에서 콜백함수로써 익명함수가 사용되는 것을 보여줍니다.
+
+3. 함수를 호출하기 위해 파라미터로 익명함수를 넘겨주는 것
+
+  예: 
+
+  ```javascript
+  // 콜백함수를 실행하는 함수
+  function processCallback(callback){
+  	if(typeof callback === 'function'){
+  		callback();
+  	}
+  }
+  
+  // 콜백으로써 익명함수를 넘겨주고 호출함
+  processCallback(function(){
+  	alert("Hi I am anonymous callback function");
+  });
+  ```
+  익명함수를 사용할지 말지를 결정하는 가장 좋은 방법은 아래와 같은 질문에 답해보는 것 입니다:
+
+정의할 기능들이 다른 곳에서도 쓰이나요?
+
+만약 이 답이 yes 라면 익명함수를 만들기 보다는 함수의 이름을 만들어야 합니다.
+
+**익명함수를 사용하는 장점**
+
+1. 코드의 양을 줄일 수 있습니다. 특히 콜백함수나 재귀함수 같은경우에.
+2.  필요없는 전역변수공간 할당을 피할 수 있습니다.
 
 </details>
 
