@@ -2063,13 +2063,13 @@ person.phoneNo = '7777777777';
 
 </details>
 
-## Question 47. What is Function binding ?
+## Question 47. 함수 바인딩이란 무엇인가요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- Function binding falls in advance JavaScript category and this is very popular technique to use in conjunction with event handler and callback function to preserve code execution context while passing function as a parameter.
+함수 바인딩은 미리 자바스크립트 범주로 지정되며, 함수를 매개 변수로 전달하면서 코드 실행 컨텍스트를 보존하기 위해 이벤트 핸들러와 콜백함수와 같이 사용하는 매우 인기있는 기술입니다.
 
-Let's consider the following example:
+다음 예제를 살펴봅시다.
 
 ```javascript
 var clickHandler = {
@@ -2080,15 +2080,15 @@ var clickHandler = {
 };
 
 var btn = document.getElementById('myBtn');
-// Add click event to btn
+// 버튼에 click 이벤트 추가
 btn.addEventListener('click', clickHandler.handleClick);
 ```
 
-Here in this example clickHandler object is created which contain message properties and handleClick method.
+이 예에서는 message 속성과 handleClick 메소드를 포함하느 Handler 객체가 있습니다.
 
-We have assigned handleClick method to a DOM button, which will be executed in response of click. When the button is clicked, then handleClick method is being called and console message. Here console.log should log the `click event handler` message but it actually log `undefined`.
+handleClick 메소드를 DOM 버튼에 할당하였고, 클릭에 대응하여 실행될 것입니다. 버튼이 클릭될 때, handleClick 메소드는 콘솔 메시지를 호출할 것입니다. console.log는 `click event handler`를 출력해야하지만 실제로는 `undefined`를 출력합니다.
 
-The problem of displaying `undefined` is because of the execution context of clickHandler.handleClick method is not being saved hence `this` pointing to button `btn` object. We can fix this issue using bind method.
+`undefined`를 표시하는 이유는 clickHandler의 실행 컨텍스트 때문입니다. handleClick 메소드는 저장되지 않아 `this`는 버튼 `btn`객체를 가리키고 있습니다. 우리는 바인드 메소드를 사용하여 이것을 고칠 수 있습니다.
 
 ```javascript
 var clickHandler = {
@@ -2099,11 +2099,13 @@ var clickHandler = {
 };
 
 var btn = document.getElementById('myBtn');
-// Add click event to btn and bind the clickHandler object
+// 이벤트를 버튼에 추가하고 clickhHandler를 객체 클릭에 바인딩
 btn.addEventListener('click', clickHandler.handleClick.bind(clickHandler));
 ```
 
 `bind` method is available to all the function similar to call and apply method which take argument value of `this`.
+
+`bind` 메소드는 이와 모든 비슷한 함수에 적용이 가능하고 `this`를 가지는 메소드를 적용할 수 있습니다.
 
 </details>
 
