@@ -1961,8 +1961,8 @@ sentEmail({
 
 </details>
 
-## Question 45. Write code for merge two JavaScript Object dynamically.
-Let say you have two objects 
+## Question 45. 두개의 자바스크립트 객체를 동적으로 합치는 코드를 작성해보세요.
+아래 두 개의 오브젝트를 살펴봅시다. 
 
 ```javascript
 var person = {
@@ -1976,9 +1976,10 @@ var address = {
 	city : 'NewYork'
 } 
 ```
-Write merge function which will take two object and add all the own property of second object into first object.
+첫번째 객체 안에 두번째 객체의 속성을 모두 추가하고 두개의 오브젝트를 가지는 함수를 작성해봅시다.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 merge(person , address); 
@@ -1986,22 +1987,22 @@ merge(person , address);
 /* Now person should have 5 properties 
 name , age , addressLine1 , addressLine2 , city */
 ```
-**Method 1: Using ES6, Object.assign method**
+**방법 1: ES6문법인 Object.assign을 사용하는 것**
 
 ```javascript
 const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
 ```
 
-**Method 2: Without using built-in function**
+**방법 2: 미리 만들어진 함수 없이 쓰는 것**
 
 ```javascript
 function merge(toObj, fromObj) {
-  // Make sure both of the parameter is an object
+  // 두개의 파라미터가 오브젝트인지 먼저 확인
   if (typeof toObj === 'object' && typeof fromObj === 'object') {
     for (var pro in fromObj) {
-      // Assign only own properties not inherited properties
+      // 상속되지 않은 고유 속성을 할당합니다.
       if (fromObj.hasOwnProperty(pro)) {
-        // Assign property and value
+        // 속성과 값을 할당합니다.
         toObj[pro] = fromObj[pro];
       }
     }
