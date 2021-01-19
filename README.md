@@ -21,8 +21,8 @@
 `var x` 는 선언입니다. 우리는 아직 변수를 정의하지 않았습니다. 하지만 우리는 그것의 존재와 메모리 할당의 필요성을 선언하고 있습니다.
 
 ```javascript
-var x; // declaring x
-console.log(x); // output: undefined
+var x; // x를 선언
+console.log(x); // 출력: undefined
 ```
 
 `var x = 1` 는 선언과 정의를 동시에 하고 있습니다. 여기서 값의 선언 및 할당은 변수 x에 대해 인라인(?)에서 발생합니다. 우리는 이것을 초기화(initialization)라고 부릅니다. 자바스크립트에서 변수선언과 함수 선언 모두 선언된 범위의 최상단으로 이동한 다음 할당이 발생합니다. 우리는 이것을 보고 호이스팅(hoisting)이라고 부릅니다.
@@ -30,14 +30,14 @@ console.log(x); // output: undefined
 `undefined`는 변수가 선언될 수는 있으나 정의될 수는 없는 경우일때 발생합니다. 우리가 이것에 대해 접근하려고 할 때, 이것은 `undefined`를 내뱉습니다.
 
 ```javascript
-var x; // Declaration
-typeof x === 'undefined'; // Will return true
+var x; // 선언
+typeof x === 'undefined'; // true가 리턴됩니다.
 ```
 
 `not defined`는 변수가  선언될 수도 없고 정의될 수도 없는 경우입니다. 우리가 그러한 변수를 참조하려고할 때 결과는 `not defined` 입니다.
 
 ```javascript
-console.log(y);  // Output: ReferenceError: y is not defined
+console.log(y);  // 출력: ReferenceError: y is not defined
 ```
 
 ### 관련 링크:
@@ -156,33 +156,36 @@ globalVar = abc
 
 </details>
 
-## Question 5. Write a mul function which will work properly when invoked with following syntax.
+## Question 5. 다음 구문을 사용하여 호출할때 제대로 동작하는 곱셈 함수를 작성해주세요.
 
 ```javascript
-console.log(mul(2)(3)(4)); // output : 24
-console.log(mul(4)(3)(4)); // output : 48
+console.log(mul(2)(3)(4)); // 출력 : 24
+console.log(mul(4)(3)(4)); // 출력 : 48
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 function mul (x) {
-  return function (y) { // anonymous function
-    return function (z) { // anonymous function
+  return function (y) { // 익명 함수
+    return function (z) { // 익명 함수
       return x * y * z;
     };
   };
 }
 ```
 
-Here the `mul` function accepts the first argument and returns an anonymous function which then takes the second parameter and returns one last anonymous function which finally takes the third and final parameter; the last function then multiplies `x`, `y` and `z`, and returns the result of the operation.
+여기서 `mul`함수는 첫번째 인자를 받고, 두번째 인자를 취하는 익명함수를 반환하고, 마지막으로 세번째 인자를 취하는 익명함수를 반환하는 형태의 함수입니다.
 
-In Javascript, a function defined inside another function has access to the outer function's scope and can consequently return, interact with or pass on to other functions, the variables belonging to the scopes that incapsulate it.
+이때 마지막 함수는 `x`, `y`, `z`를 곱하여 그 연산 결과를 반환합니다.
 
-- A function is an instance of the Object type
-- A function can have properties and has a link to its constructor method
-- A function can be stored as a variable
-- A function can be passed as a parameter to another function
-- A function can be returned by another function
+자바스크립트에서 다른함수 안에서 정의된 함수는 외부 함수의 스코프에 접근할 수 있으며 결과적으로 이것을 캡슐화하는 범위에 속하는 변수인 다른 함수를 반환하거나 리턴할 수 있습니다.
+
+- 함수는 Object 타입의 인스턴스입니다.
+- 함수는 속성을 가질 수 있으며 생성자 메서드에 대한 링크를 가질 수 있습니다.
+- 함수는 변수로써 저장될 수 있습니다.
+- 함수는 다른 함수의 파라미터로 전달될 수 있습니다.
+- 함수는 다른 함수에 의해 리턴될 수 있습니다.
 
 </details>
 
@@ -262,43 +265,43 @@ while(arrayList.length) {
 
 </details>
 
-## Question 7. How to check if an object is an array or not?
+## Question 7. 객체가 배열인지 어떻게 확인하나요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The best way to find whether an object is instance of a particular class or not using `toString` method from `Object.prototype`
+객체가 특정 클래스의 인스턴스인지 또는 `Object.prototype`에서 `toString`메서드로 사용중인지를 확인할 수 있는 가장 좋은 방법
 
 ```javascript
 var arrayList = [1 , 2, 3];
 ```
 
-One of the best use cases of type checking of an object is when we do method overloading in JavaScript. To understand this, let's say we have a method called `greet` which can take a single string and also a list of strings. To make our `greet` method workable in both situation we need to know what kind of parameter is being passed: is it single value or list of values?
+객체의 타입체크 중 가장 좋은 방법 중 하나는 자바스크립트에서 메서드 오버로딩을 수행하는 경우입니다. 이를 이해하기 위해서 하나의 문자열과 하나의 문자열 목록을 얻을 수 있는 `greet` 이라는 메서드가 있다고 가정해봅시다. `greet` 이라는 메서드가 단일 값을 넘겨주는지 또는 리스트값을 넘겨주는지, 그 두 개를 모두 실행할 수 있게 하기 위해서는 어떤 종류의 매개변수가 들어오는지를 확인해야 합니다.
 
 ```javascript
 function greet(param) {
   if() {
-    // here have to check whether param is array or not
+    // param이 배열인지 아닌지를 체크해야함
   }
   else {
   }
 }
 ```
 
-However, in the above implementation it might not necessary to check the type of the array, we can check for single value string and put array logic code in else block, let see below code for the same.
+그러나 위 구현에서는 배열의 유형을 확인할 필요가 없을 수 있는데, 우리가 단일 값 문자열을 확인하고 배열 코드를 다른 블록에 넣을 수 있기 때문입니다. 아래의 코드를 살펴보겠습니다.
 
 ```javascript
  function greet(param) {
    if(typeof param === 'string') {
    }
    else {
-     // If param is of type array then this block of code would execute
+     // 만약 타입이 array라면 이 코드블록이 실행됩니다.
    }
  }
 ```
 
-Now it's fine we can go with the previous two implementations, but when we have a situation like a parameter can be `single value`, `array`, and `object` type then we will be in trouble.
+앞의 두 가지 실행은 괜찮은 방법일 수 있지만, `단일 값`, `배열`, `객체`일 경우에는 문제가 될 수 있습니다. 
 
-Coming back to checking the type of an object, As we mentioned that we can use `Object.prototype.toString`
+다시 객체의 타입 체킹으로 돌아와서 우리는 `Object.prototype.toString`을 사용할 수 있다고 언급한 바 있습니다.
 
 ```javascript
 if(Object.prototype.toString.call(arrayList) === '[object Array]') {
@@ -306,7 +309,7 @@ if(Object.prototype.toString.call(arrayList) === '[object Array]') {
 }
 ```
 
-If you are using `jQuery` then you can also used jQuery `isArray` method:
+만약 당신이 `jQuery`를 사용한다면 당신은 jQuery의 `isArray` 메소드를 사용할 수 있습니다.
 
 ```javascript
 if($.isArray(arrayList)) {
@@ -316,15 +319,15 @@ if($.isArray(arrayList)) {
 }
 ```
 
-FYI jQuery uses `Object.prototype.toString.call` internally to check whether an object is an array or not.
+jQuery는 객체가 배열인지 아닌지를 확인할때 내부적으로 `Object.prototype.toString.call`을 사용합니다.
 
-In modern browser, you can also use:
+모던 브라우저에서는, 다음과 같이 사용할 수 있습니다.
 
 ```javascript
 Array.isArray(arrayList);
 ```
 
-`Array.isArray` is supported by Chrome 5, Firefox 4.0, IE 9, Opera 10.5 and Safari 5
+`Array.isArray`는 Chrome5, Firefox 4.0, IE 9, Opera 10.5 그리고 Safari 5에서 지원 됩니다.
 
 
 </details>
@@ -346,7 +349,7 @@ The code above will output `0` as output. `delete` operator is used to delete a 
 
 </details>
 
-## Question 9. What will be the output of the following code?
+## Question 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var x = 1;
@@ -357,10 +360,10 @@ var output = (function() {
 
 console.log(output);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+위 코드는  1을 출력합니다.
 
-The code above will output `1` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **global variable** of type `number`.
-
+`delete` 연산자는 객체의 프로퍼티를 삭제하는데 사용됩니다. `x`는 객체가 아니고 `숫자` 타입의 **전역변수** 입니다.
 
 </details>
 
@@ -382,7 +385,7 @@ The code above will output `undefined` as output. `delete` operator is used to d
 
 </details>
 
-## Question 11. What will be the output of the following code?
+## Question 11. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var Employee = {
@@ -393,10 +396,11 @@ delete emp1.company
 console.log(emp1.company);
 ```
 
-<details><summary><b>Answer</b></summary>
-The code above will output `xyz` as output. Here `emp1` object got company as **prototype** property. delete operator doesn't delete prototype property.
+<details><summary><b>정답</b></summary>
 
-`emp1` object doesn't have **company** as its own property. you can test it `console.log(emp1.hasOwnProperty('company')); //output : false` However, we can delete company property directly from `Employee` object using `delete Employee.company` or we can also delete from `emp1` object using `__proto__` property `delete emp1.__proto__.company`.
+이 코드는 `xyz`를 출력합니다. `emp1` 객체는 객체 **프로토타입**으로써 company를 갖고있습니다. delete 연산자는 프로토타입 속성을 삭제하지 않습니다.
+
+ `emp1` 객체는 **company** 속성을 자체 속성으로 가지고 있지않습니다. 우리는 이것을`console.log(emp1.hasOwnProperty('company')); //output : false` 로 테스트 해볼 수 있습니다. 그러나 우리는 `Employee` 객체에서 직접적으로  `delete Employee.company` 메소드를 사용하여 `company` 속성을 삭제할 수 있습니다. 또는 우리는 그것을 `__proto__` 속성인 `delete emp1.__proto__.company` 를 사용하여 `emp1`객체로 부터 삭제할 수 있습니다. 
 
 
 </details>
@@ -421,19 +425,18 @@ Clearly we can see that Chrome has its own way of displaying uninitialized index
 
 </details>
 
-## Question 13. What will be the output of the following code?
+## Question 13. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
 delete trees[3];
 console.log(trees.length);
 ```
-<details><summary><b>Answer</b></summary>
-The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
+<details><summary><b>정답</b></summary>
 
-So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
+이 코드의 결과는 `5`를 출력합니다. 우리가 배열의 삭제를 위해 `delete` 연산자를 사용했을 때, 배열 길이에는 영향을 끼치지 않습니다. 비록 `delete` 연산자를 사용하여 배열의 원소를 삭제했을 지라도 길이는 그대로 입니다.
 
-
+delete 연산자를 사용하여 배열 원소를 삭제하면 더이상 배열에는 삭제한 원소가 존재하지 않습니다.  삭제된 값은 `undefined x 1` 로 크롬에서 대체되고 인덱스 자리에 `undefined`가 위치합니다. 만약 당신이 `console.log(trees)`로 출력한다면 크롬에서는   `["xyz", "xxxx", "test", undefined × 1, "apple"]` 를 출력할 것이고 Firefox에서는  `["xyz", "xxxx", "test", undefined, "apple"]` 를 출력할 것입니다.
 
 </details>
 
@@ -460,15 +463,15 @@ The code above will output `1, "truexyz", 2, 1` as output. Here's a general guid
 
 </details>
 
-## Question 15. What will be the output of the following code?
+## Question 15. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var z = 1, y = z = typeof y;
 console.log(y);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will print string `"undefined"` as output. According to associativity rule operator with the same precedence are processed based on their associativity property of operator. Here associativity of the assignment operator is `Right to Left` so first `typeof y` will evaluate first which is string `"undefined"` and assigned to `z` and then `y` would be assigned the value of z. The overall sequence will look like that: 
+이코드의 결과는 `"undefined"`를 출력합니다. 연관 규칙 연산자에 따르면 우선 순위가 동일한 연산자는 연산자의 속성에 따라 처리됩니다. 여기서 할당 연산자는 `오른쪽에서 왼쪽` 으로 연산 순서가 진행되어서 `typeof y`연산이 먼저 진행되고 그 후 `"undefined"`가 z에 할당되고 z의 값이 y에 할당됩니다. 전체적인 순서는 다음과 같을것입니다.
 
 ```javascript
 var z;
@@ -522,7 +525,7 @@ var foo = function bar() {
 
 </details>
 
-## Question 17a. What is the difference between declaring a function in the formats listed below?
+## Question 17a. 아래 형식으로 함수를 선언하는 방법들의 차이는 무엇일까요?
 
 ```javascript
 var foo = function() {
@@ -535,42 +538,43 @@ function bar () {
   // Some code
 }
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The main difference is that function `foo` is defined at `run-time` and is called a function expression, whereas function `bar` is defined at `parse time` and is called a function statement. To understand it better, let's take a look at the code below :
+주요한 차이는 함수 `foo`는 `run-time`에 정의됩니다. 그리고 이것을 function expression이라고 부릅니다. 반면에 함수 `bar`는 `parse time`에 실행됩니다. 또한 이것은 function statement라고 불립니다. 이것을 좀더 잘 이해하기 위해서 아래 코드를 살펴봅시다.
 
 ```javascript
-// Run-Time function declaration
-  foo(); // Call foo function here, It will give an error
+// Run-Time 함수 선언
+  foo(); // foo 함수를 여기서 호출하면 에러가 날 것 입니다.
   var foo = function() {
     console.log("Hi I am inside Foo");
   };
 ```
 
 ```javascript
-// Parse-Time function declaration
-bar(); // Call bar function here, It will not give an Error
+// Parse-Time 함수 선언
+bar(); // bar함수를 여기에 호출하면 이것은 에러가 나지 않을 것입니다.
 function bar() {
   console.log("Hi I am inside Foo");
 }
 ```
 </details>
 
-## Question 17b. What is the output of the following?
+## Question 17b. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 bar();
 (function abc(){console.log('something')})();
 function bar(){console.log('bar got called')};
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be :
+
+이것의 정답은 다음과 같이 될 것입니다.
 ``` 
 bar got called
 something
 ```
-Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
+구문분석 시간동안 함수가 먼저 호출되고  정의되기때문에 JS 엔진은 가능한 구문분석 시간 정의를 찾고 실행 루프를 시작하려고 합니다. 이는 정의가 다른 함수를 게시하더라도  함수를 먼저 호출한다는 의미입니다. 
 
 </details>
 
@@ -615,7 +619,7 @@ foo(); // Now foo is defined here
 
 </details>
 
-## Question 19. What will be the output of the following code?
+## Question 19. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var salary = "1000$";
@@ -628,22 +632,9 @@ var salary = "1000$";
   console.log("My New Salary " + salary);
 })();
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will output: `undefined, 5000$` because of hoisting. In the code presented above, you might be expecting `salary` to retain it values from outer scope until the point that `salary` was re-declared in the inner scope. But due to `hoisting` salary value was `undefined` instead. To understand it better have a look of the following code, here `salary` variable is hoisted and declared at the top in function scope. When we print its value using `console.log` the result is `undefined`. Afterwards the variable is redeclared and the new value `"5000$"` is assigned to it.
-
-```javascript
-var salary = "1000$";
-
-(function () {
-  var salary = undefined;
-  console.log("Original salary was " + salary);
-
-  salary = "5000$";
-
-  console.log("My New Salary " + salary);
-})();
-```
+다음 코드의 정답은 다음과 같을 것입니다 : 호이스팅 문제 때문에 `undefined, 5000$`을 출력합니다. 위 코드에서, `salary`가 내부 범위에서 다시 선언될 때까지 `salary`가 외부범위로부터 값을 유지할 것으로 예상할 수 있습니다. 그러나 `호이스팅` 때문에 salary 값은 `undefined` 입니다. 다음의 코드를 더 잘 이해하기 위해, 여기 `salary` 변수는 함수 범위의 맨 위에 호이스팅되고 선언됩니다. 우리가 그 값을 `console.log`를 사용하여 출력할 때 그 값은 `undefined`가 됩니다. 이후에 변수는 다시 선언되고 새로운 값은 `"5000$"`로 할당됩니다.
 
 </details>
 
@@ -676,7 +667,7 @@ Ref Link: [http://stackoverflow.com/questions/2449254/what-is-the-instanceof-ope
 
 </details>
 
-## Question 21. Calculate the length of the associative array
+## Question 21. 연관 배열의 길이를 계산하기
 
 ```javascript
 var counterArray = {
@@ -685,21 +676,21 @@ var counterArray = {
 };
 counterArray["C"] = 1;
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-First of all, in the case of JavaScript an associative array is the same as an object. Secondly, even though there is no built-in function or property available to calculate the length/size an object, we can write such function ourselves.
+먼저 자바스크립트에서 연관배열은 객체와 같습니다. 두번째로 객체의 길이/크기를 계산하는데 사용할 수 있는 내장함수나 속성이 없더라도, 이러한 함수를 직접 작성할 수 있습니다.
 
-#### Method 1
+#### 방법 1
 
-`Object` has `keys` method which can be used to calculate the length of object.
+`Object`는 `keys` 메소드를 가지고 있고 오브젝트의 길이를 계산하기 위해 사용됩니다.
 
 ```javascript
-Object.keys(counterArray).length; // Output 3
+Object.keys(counterArray).length; // 3 출력
 ```
 
-#### Method 2
+#### 방법 2
 
-We can also calculate the length of object by iterating through the object and by doing a count of own property of object. This way we will ignoge the properties that came from the object's prototype chain:  
+우리는 또한 객체를 반복하면서 객체의 프로퍼티의 개수를 세면서 객체의 길이를 계산할 수 있습니다. 이 방법은 객체의 프로토타입 체인에서 가져온 속성을 무시할 수 있습니다. 
 
 ```javascript
 function getLength(object) {
@@ -712,17 +703,17 @@ function getLength(object) {
 }
 ```
 
-#### Method 3 
+#### 방법 3 
 
-All modern browsers (including IE9+) support the [`getOwnPropertyNames`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) method, so we can calculate the length using the following code: 
+모든 모던 브라우저들 (IE9 포함) 은 [`getOwnPropertyNames`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) 메소드를 지원합니다. 그래서 우리는 다음과 같은 코드로 길이를 계산할 수 있습니다.
 
 ```javascript
-Object.getOwnPropertyNames(counterArray).length; // Output 3
+Object.getOwnPropertyNames(counterArray).length; // 3 출력
 ```
 
-#### Method 4
+#### 방법 4
 
-[Underscore](https://underscorejs.org/#size) and [lodash](https://lodash.com/docs/4.17.10#size) libraries have the method `size` dedicated to calculate the object length. We don't recommend to include one of these libraries just to use the `size` method, but if it's already used in your project - why not? 
+[Underscore](https://underscorejs.org/#size) 와 [lodash](https://lodash.com/docs/4.17.10#size) 라이브러리들은 객체 길이를 계산하기 위해 `size` 메소드를 갖고 있습니다. 우리는  단지 이 메소드를 사용하기 위해 라이브러리를 포함 하는 것은 추천하지 않지만 만약 당신이 이미 프로젝트에 이 라이브러리를 사용하고 있다면 사용하는 것도 괜찮습니다.
 
 ```javascript
 _.size({one: 1, two: 2, three: 3});
@@ -791,7 +782,7 @@ The primary role of the constructor function is to initialize the object.
 
 </details>
 
-## Question 23. What would be the output of the following code?
+## Question 23. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function User(name) {
@@ -802,14 +793,14 @@ var person = new User("xyz")["location"] = "USA";
 console.log(person);
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output of above code would be `"USA"`. Here `new User("xyz")` creates a brand new object and created property `location` on that and `USA` has been assigned to object property location and that has been referenced by the person.
+위 코드의 결과는 `"USA"`입니다. `new User("xyz")`는 새로운 객체를 생성하고 `location`속성을 생성해 `"USA"` 를 location 속성에 할당합니다. 그리고 그 객체는 person에 의해 참조됩니다.
 
-Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's `"USA"`.
- Then it will be assigned to person. 
+이제 `new User("xyz")`를 `foo`라고 해보겠습니다. `"USA"`값은 `foo["location"]`에 할당될 것입니다. 그러나  [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) 에 따르면  할당은 가장 오른쪽 값을 반환하게 될 것이라고 되어있습니다. : 여기의 경우엔 `"USA"`가 되겠네요. 그럼 person에 "USA"가 할당될 것입니다.
 
- To better understand what's going on here, try to execute this code in console, line by line:
+이것이 어떻게 돌아가는지 좀더 잘 이해하기 위해서, 여기 아래 콘솔에 있는 코드를 한줄한줄씩 실행해봅시다. 
+
  ```javascript
 function User(name) {
   this.name = name || "JsGeeks";
@@ -818,8 +809,7 @@ function User(name) {
 var person;
 var foo = new User("xyz");
 foo["location"] = "USA";
-// the console will show you that the result of this is "USA"
-
+// foo는 다음과 같은 객체로 변화해있습니다. User {name: "xyz", location: "USA"}
  ```
 
 
@@ -837,35 +827,37 @@ As of 2017, Service Workers are not supported in IE and Safari.
 
 </details>
 
-## Question 25. What is the difference between a method and a function in javascript?
+## Question 25. 자바스크립트에서 function과 method의 차이는 무엇인가요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-In JS, that difference is quite subtle. A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. It can be passed data to operate on (i.e. parameter) and can optionally return data (the return value).
+js에서 그차이는 미묘합니다. function은 어떤 object와도 연결되지 않고 어떤 object안에도 정의되지 않은 이름 및 함수로 호출되는 코드조각입니다.
+
+이것은 데이터를 전달하여 작동시킬 수 있으며(즉, 파라미터) 선택적으로 데이터를 반환할 수 있습니다(반환 값).
 
 ```javascript
-// Function statement
+// 함수 명세
 function myFunc() {
-  // Do some stuff;
+  // 무엇인가 일을 한다;
 }
 
-// Calling the function
+// 함수 호출
 myFunc();
 ```
 
-Here myFunc() function call is not associated with object hence not invoked through any object.
+여기서 myFunc() 함수 호출이 개체와 연결되어 있지 않으므로 개체를 통해 호출되지 않습니다.
 
-A function can take a form of immediately invoked function expression (IIFE):
+함수는 즉시 호출되는 함수 식(IIFE)의 형태를 취할 수 있습니다.
 
 ```javascript
 
-// Anonymous Self-invoking Function
+// 자신을 호출
 (function() {
-  // Do some stuff;
+  // 무엇인가 일을 한다;
 })();
 ```
 
-Finally there are also arrow functions: 
+마지막으로 화살표 함수도 있습니다.
 
 ```javascript
 const myFunc = arg => {
@@ -873,11 +865,11 @@ const myFunc = arg => {
 } 
 ```
 
-A method is a piece of code that is called by its name and that is associated with the object. Methods are functions. When you call a method like this `obj1.myMethod()`, the reference to `obj1` gets assigned (bound) to `this` variable. In other words, the value of `this` will be `obj1` inside `myMethod`. 
+method는 코드이름으로 호출되고 object와 연결된 코드 조각입니다. method는 함수입니다. `obj1.myMethod()`같은 방식으로 method를 호출할때 `obj1`에 대한 참조가 `this` 변수에 할당됩니다. 다른말로 `this`의 값은 `obj1`안의 `myMethod`입니다. 
 
-Here are some examples of methods: 
+여기 method의 예제가 있습니다.
 
-##### Example 1
+##### 예제 1
 ```javascript
 var obj1 = {
   attribute: "xyz",
@@ -886,14 +878,14 @@ var obj1 = {
   }
 };
 
-// Call the method
+// method 호출
 obj1.myMethod();
 ```
 
-Here `obj1` is an object and `myMethod` is a method which is associated with `obj1`.
+`obj1`은 object이고 `myMethod`는 `obj1`과 연관된 method 입니다.
 
-##### Example 2
-In ES6 we have classes. There the methods will look like this:
+##### 예제 2
+ES6에서 우리는 class를 갖고 있습니다. method는 아래 처럼 보일 것 입니다.
 
 ```javascript
 class MyAwesomeClass {
@@ -906,7 +898,7 @@ const obj1 = new MyAwesomeClass();
 obj1.myMethod();
 ```
 
-Understand: the method is not some kind of special type of a function, and it's not about how you declare a function. It's the way we **call** a function. Look at that: 
+이해하기 : method는 함수의 특별한 타입의 함수가 아니며 함수를 선언하는 방법에 대한 것도 아닙니다. 이것은 단지 우리가 함수를 **호출** 하는 방법입니다. 아래를 보시죠.
 
 ```javascript
 var obj1 = {
@@ -915,12 +907,12 @@ var obj1 = {
 var myFunc = function () {
   console.log("Hi there", this);
 };
-// let's call myFunc as a function: 
-myFunc(); // will output "Hi there undefined" or "Hi there Window"
+// function으로써 myFunc를 호출하기
+myFunc(); // "Hi there undefined" 또는 "Hi there Window"를 출력할 것입니다.
  
 obj1.myMethod = myFunc;
-//now we're calling myFunc as a method of obj1, so this will point to obj1
-obj1.myMethod(); // will print "Hi there" following with obj1. 
+// 이제 우리는 obj1의 method로써 myFunc를 호출하겠습니다. 이렇게 obj1을 가리켜줍니다.
+obj1.myMethod(); //  "Hi there"을 출력할 것입니다. this는 {prop1: "buddy", myMethod: ƒ} 이렇게 나옵니다.
 
 ```
 
@@ -995,95 +987,94 @@ code, it helps to prevent polluting the global scope and provide the module inte
 
 </details>
 
-## Question 27. Describe Singleton Pattern In JavaScript
-<details><summary><b>Answer</b></summary>
+## Question 27. 자바스크립트에서의 싱글톤 디자인 패턴
+<details><summary><b>정답</b></summary>
 
-The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
+싱글톤 패턴은 종종 자바스크립트 디자인 패턴으로 사용됩니다. 이 방법은 한개의 변수를 통해 액세스할 수 있는 논리 단위로 코드를 감싸는 방법입니다. 싱글톤 디자인 패턴은 애플리케이션의 수명 동안 하나의 객체 인스턴스만 필요할 때 사용됩니다. 자바스크립트에서 싱글톤 패턴은 여러 용도로 사용될 수 있으며, 네임스페이싱을 위해서도 사용될 수 있습니다.이 패턴은 페이지의 전역 변수의 숫자를 줄이고(전역 공간을 오염시키지 않도록), 코드를 일관된 방식으로 구성함으로써 페이지의 가독성과 유지보수를 증가시킵니다.
 
-There are two important points in the traditional definition of Singleton pattern:
-- There should be only one instance allowed for a class and
-- We should allow global point of access to that single instance
+여기 싱글톤 패턴의 전통적인 정의의 두가지 중요한 점이 있습니다:
 
-Let me define singleton pattern in JavaScript context:
+- 한 클래스에 대해 하나의 인스턴스만 허용되어야 합니다.
+- 단일 인스턴스에 대한 글로벌 액세스 지점을 허용해야 합니다.
 
-> It is an object that is used to create namespace and group together a related set of methods and attributes (encapsulation) and if we allow to initiate then it can be initiated only once.
+자바스크립트 문맥으로 싱글톤 패턴을 이해해 봅시다:
 
-In JavaScript, we can create singleton though object literal. However, there is some another way but that I will cover in next post.
+> 이 개체는 네임스페이스를 만들고 관련 메서드 및 속성 집합(캡슐화)을 그룹화하는 데 사용되는 개체이며, 시작을 허용할 경우 한 번만 시작할 수 있습니다.
 
-A singleton object consists of two parts: The object itself, containing the members (Both methods and attributes) within it, and global variable used to access it. The variable is global so that object can be accessed anywhere in the page, this is a key feature of the singleton pattern.
+자바스크립트에서, 우리는 객체 리터럴을 통해 싱글톤을 만들 수 있습니다. 여기 몇몇 다른 방법이 있지만 다음 포스트때 그 방법을 다룰것입니다.
 
-**JavaScript: A Singleton as a Namespace**
+싱글톤 객체는 두 부분으로 구성됩니다. 개체 자체로서, 개체 내의 구성원(메소드와 속성)과 개체에 액세스하는 데 사용되는 글로벌 변수를 포함합니다. 변수는 전역적이어서 페이지의 모든 위치에서 객체에 액세스할 수 있습니다. 이 변수는 싱글톤 패턴의 주요 기능입니다.
 
-As I have already stated above that singleton can be used to declare Namespace in JavaScript. NameSpacing is a large part of responsible programming in JavaScript. Because everything can be overwritten, and it is very easy to wipe out variable by mistake or a function, or even a class without even knowing it. A common example which happens frequently when you are working with another team member parallel,  
+**자바스크립트: 네임스페이스로써의 싱글톤**
+
+위에서 말한 바와 같이, 자바스크립트에서 네임스페이스를 선언하는 데 싱글톤을 사용할 수 있습니다. NameSpacing은 JavaScript에서 중요한 프로그래밍의 부분입니다. 왜냐하면 실수하여 모든 것을 덮어쓸 수 있고,  변수나 함수, 심지어 클래스도 모르는 사이에 삭제하기가 매우 쉽기 때문입니다. 다른 팀원과 병렬로 작업할 때 자주 발생하는 일반적인 예입니다.
 
 ```javascript
 function findUserName(id) {
 
 }
 
-/* Later in the page another programmer
-added code */
+/* 후에 다른 프로그래머가 이부분을 추가할 것입니다. */
 var findUserName = $('#user_list');
 
-/* You are trying to call :( */
+/* 당신은 이부분을 호출하길 원합니다. :( */
 console.log(findUserName())
 ```
 
-One of the best ways to prevent accidentally overwriting variable is to namespace your code within a singleton object.
+실수로 변수를 덮어쓰지 않도록 하는 가장 좋은 방법 중 하나는 싱글톤 개체 내에서 코드 네임스페이스를 지정하는 것입니다.
 
 ```javascript
 /*  Using Namespace */
 
 var MyNameSpace = {
   findUserName : function(id) {},
-  // Other methods and attribute go here as well
+  // 다른 메소드와 함수 역시 여기에 선언합니다.
 }
 
-/* Later in the page another programmer
-added code */
+/*  후에 다른 프로그래머가 이부분을 추가할 것입니다.  */
 var findUserName = $('#user_list');
 
-/* You are trying to call and you make this time workable */
+/* 당신은 이부분을 호출하길 원합니다. */
 console.log(MyNameSpace.findUserName());
 ```
 
-### Singleton Design Pattern Implementation
+### 싱글톤 디자인 패턴 구현
 
 ```javascript
-/* Lazy Instantiation skeleton for a singleton pattern */
+/* 싱글 톤 패턴에 대한 지연 인스턴스화 스켈레톤 */
 
 var MyNameSpace = {};
 MyNameSpace.Singleton = (function() {
 
-  // Private attribute that holds the single instance
+  // 단일 인스턴스를 보유하는 private 속성
   var singletonInstance;  
 
-  // All of the normal code goes here
+  // 모든 일반 코드가 여기에 있습니다.
   function constructor() {
-    // Private members
+    // Private 멤버들
     var privateVar1 = "Nishant";
     var privateVar2 = [1,2,3,4,5];
 
     function privateMethod1() {
-      // code stuff
+      // 코드
     }
 
     function privateMethod1() {
-      // code stuff
+      // 코드
     }
 
     return {
       attribute1 : "Nishant",
       publicMethod: function() {
-        alert("Nishant");// some code logic
+        alert("Nishant");// 코드
       }
     }
   }
 
   return {
-    // public method (Global access point to Singleton object)
+    // public 메서드 (Singleton 개체에 대한 전역 액세스 지점)
     getInstance: function() {
-      //instance already exist then return  
+      // 인스턴스가 이미 존재하고 return
       if(!singletonInstance) {
         singletonInstance = constructor();
       }
@@ -1093,11 +1084,11 @@ MyNameSpace.Singleton = (function() {
 
 })();   
 
-// getting access of publicMethod
+// publicMethod에 액세스하기
 console.log(MyNamespace.Singleton.getInstance().publicMethod());
 ```
 
-The singleton implemented above is easy to understand. The singleton class maintains a static reference to the lone singleton instance and return that reference from the static getInstance() method.
+위에서 구현한 싱글톤은 이해하기 쉽습니다. 싱글톤 클래스는 싱글톤 인스턴스에 대한 정적 참조를 유지하고 정적 getInstance() 메서드에서 해당 참조를 반환합니다.
 
 </details>
 
@@ -1171,12 +1162,13 @@ employee.getName = function(){
 
 </details>
 
-## Question 29. Write a function called deepClone which takes an object and creates a object copy of it.
+## Question 29. 객체를 가져와서 객체의 복사본을 만드는 deepClone 함수를 작성해봅시다.
 
 ``` javascript
 var newObject = deepClone(obj);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 function deepClone(object){
@@ -1192,7 +1184,7 @@ function deepClone(object){
 }
 ```
 
-**Explanation:** We have been asked to do deep copy of object so What's basically it's mean ??. Let's understand in this way you have been given an object `personalDetail` this object contains some property which again a type of object here as you can see `address` is an object and `phoneNumber` in side an `address` is also an object. In simple term `personalDetail` is nested object(object inside object). So Here deep copy means we have to copy all the property of `personalDetail` object including nested object.
+**설명:** 우리는 먼저 객체의 deep copy의 의미가 무엇인지 부터 알아야 합니다. 주어진 `personalDetail`객체는 `address`객체와 그 일부인 `phoneNumber`객체를 살펴보도록 합시다. 간단한 `personalDetail` 은 중첩된 객체(객체안에 객체)입니다. 여기 deep copy는 중첩된 객체를 포함하여 `personalDetail`객체의 전부를 복사해야 하는 것을 의미합니다.
 
 ```javascript
 var personalDetail = {
@@ -1207,7 +1199,7 @@ var personalDetail = {
 	}
 }
 ```
-So when we do deep clone then we should copy every property (including the nested object).
+그래서 우리가 deep clone을 할 때 우리는 모든 속성을 복사해야 합니다.(중첩된 객체를 포함하여)
 
 </details>
 
@@ -1243,15 +1235,16 @@ if(typeof person.salary === 'undefined'){
 ```
 </details>
 
-## Question 31. Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object. 
+## Question 31. 오브젝트를 가져와서 오브젝트의 복사본을 만들지만 깊은 속성은 복사하지 않는 `Clone` 함수를 작성해 보세요.
 
 ```javascript
    var objectLit = {foo : 'Bar'}; 
-	var cloneObj = Clone(obj); // Clone is the function which you have to write 
-	console.log(cloneObj === Clone(objectLit)); // this should return false
-	console.log(cloneObj == Clone(objectLit)); // this should return true
+	var cloneObj = Clone(obj); // Clone은 당신이 작성해야하는 함수입니다.
+	console.log(cloneObj === Clone(objectLit)); // 이것은 false를 리턴해야합니다.
+	console.log(cloneObj == Clone(objectLit)); // 이것은 true를 리턴해야합니다.
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 function Clone(object){
@@ -1284,11 +1277,11 @@ Be sure that you can implement the promise, read [one of the articles on a topic
 
 </details>
 
-## Question 33. How to check whether a key exist in a JavaScript object or not.
+## Question 33. 어떻게 자바스크립트 객체에 키가 존재하는지 체크해야 하나요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-Let say we have `person` object with property **name** and **age**
+ **name** 과 **age** 속성을 갖는 `person` 객체가 있다고 해봅시다.
 
 ```javascript
 var person = {
@@ -1296,31 +1289,29 @@ var person = {
 	age: 24
 }
 ```
-Now we want to check whether `name` property exist in `person` object or not ?
+이제 `person` 객체에 `name`속성이 있는지 어떻게 확인해야 할까요?
 
-In JavaScript object can have own property, in above example name and age is own property of person object. Object also have some of inherited property of base object like toString is inherited property of person object.
+자바스크립트에서 객체는 자신의 프로퍼티를 가질 수 있습니다. 위의 예에서 name 과 age는 person 객체의 속성입니다. 또한 객체는 toString 과 같은 기본 개체의 상속된 속성이 있기도 합니다.
 
-So how we will check whether property is own property or inherited property. 
+이제 어떻게 우리가 속성이 자신의 속성인지 상속된 속성인지 체크하는 방법에 대해 알아보도록 하겠습니다.
 
-Method 1: We can use `in` operator on objet to check own property or inherited property. 
+방법 1: 우리는 `in`연산자를 사용하여 객체가 자신의 속성인지 상속된 속성인지 체크할 수 있습니다.
 
 ```javascript
-console.log('name' in person); // checking own property print true 
-console.log('salary' in person); // checking undefined property print false
+console.log('name' in person); // 자신의 속성이면 true를 출력합니다.
+console.log('salary' in person); // undefined를 출력합니다.
 ```
-`in` operator also look into inherited property if it doesn't find property defined as own property. For instance If I check existence of toString property as we know that we haven't declared this property on person object so `in` operator look into there base property.
-
-Here 
+`in` 연산자는 또한 자신의 속성으로써 정의된 속성을 찾지 못한다면 상속된 속성을 찾아봅니다. 예를들어 만약 toString 프로퍼티의 존재를 확인하려 한다면 먼저 객체의 기본 속성안을 들여다 본다음 기본 속성안에 선언되지 않았으므로 그 다음으로 상속된 속성을 살펴봅니다.
 
 ```javascript
-console.log('toString' in person); // Will print true
+console.log('toString' in person); // true를 출력합니다.
 ```
-If we want to test property of object instance not inherited properties then we will use `hasOwnProperty` method of object instance.
+만약 우리가 상속되지 않은 속성만을 검사하고 싶다면 `hasOwnProperty`를 쓰면 됩니다.
 
 ```javascript
-console.log(person.hasOwnProperty('toString')); // print false
-console.log(person.hasOwnProperty('name')); // print true
-console.log(person.hasOwnProperty('salary')); // print false
+console.log(person.hasOwnProperty('toString')); // false 를 출력합니다.
+console.log(person.hasOwnProperty('name')); // true를 출력합니다
+console.log(person.hasOwnProperty('salary')); // false를 출력합니다.
 ```
 
 </details>
@@ -1352,7 +1343,7 @@ Further reading: [great blogpost on ariya.io](https://ariya.io/2014/05/the-curio
 
 </details>
 
-## Question 35. Fix the bug using ES5 only
+## Question 35. ES5 만 사용하여 버그를 수정하세요.
 
 ```javascript
 var arr = [10, 32, 65, 2];
@@ -1362,11 +1353,11 @@ for (var i = 0; i < arr.length; i++) {
   }, 3000);
 }
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-For ES6, you can just replace `var i` with `let i`. 
+ES6에서는 `var i` 를 `let i` 로 대체하면 버그를 해결할 수 있습니다..
 
-For ES5, you need to create a function scope like here:
+ES5에서는 함수 스코프를 아래와 같이 생성해야 합니다.
 
 ```javascript 
 var arr = [10, 32, 65, 2];
@@ -1379,7 +1370,7 @@ for (var i = 0; i < arr.length; i++) {
 }
 ```
 
-This can also achieve by forEach (allows you to keep that variable within the forEach’s scope)
+이것은 forEach로도 가능합니다.(forEach의 스코프 안에서도 변수를 유지하도록 허용할 수 있습니다.)
 
 ```javascript 
 var arr = [10, 32, 65, 2];
@@ -1487,13 +1478,13 @@ function isArray(value) {
 
 </details>
 
-## Question 37. Best way to detect reference values of any type in JavaScript ?
+## Question 37. 자바스크립트에서 모든 유형의 참조 값을 검색하는 가장 좋은 방법은 무엇인가요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- In Javascript Object are called as reference type, Any value other then primitive is definitely a reference type. There are several built-in reference type such as **Object**, **Array**, **Function**, **Date**, **null** and **Error**.
+자바스크립트에서 객체는 참조타입으로써 호출됩니다. 원시값이 아닌 다른값들은 분명히 참조값입니다. **Object**, **Array**, **Funciton**, **Date**, **null**, **Error** 와 같은 기본 제공 참조 유형이 있습니다.
 
-Detecting object using `typeof` operator
+`typeof` 연산자를 사용하여 객체를 감지하는 방법
 
 ```javascript
 console.log(typeof {});           // object
@@ -1503,20 +1494,20 @@ console.log(typeof null);         // object
 console.log(typeof new RegExp()); // object
 console.log(typeof new Date());   // object
 ```
-But the downside of using typeof operator to detect an object is that typeof returns `object` for `null` (However this is fact that null is an object in JavaScript).
+그러나 typeof 연산자를 사용하여 객체를 감지하는 단점은 `null`이 `object`라고 리턴한다는 점입니다. (이것은 자바스크립트에서 null이 객체라는 사실입니다.)
 
-The best way to detect an object of specific reference type using `instanceof` operator.
+참조 타입을 검사하는 가장 좋은 방법은 `instanceof` 연산자를 사용하는 것입니다.
 
->Syntax : **value** instanceof **constructor**   
+>문법 : **value** instanceof **constructor**   
 
 ```javascript
-//Detecting an array
+//array 감지하기
 if(value instanceof Array){
 	console.log("value is type of array");
 }
 ```
 ```javascript
-// Employee constructor function
+// Employee 생성자 함수
 function Employee(name){
 	this.name = name; // Public property
 }
@@ -1525,7 +1516,7 @@ var emp1 = new Employee('John');
 
 console.log(emp1 instanceof Employee); // true
 ```
-`instanceof` not only check the constructor which is used to create an object but also check it's prototype chain see below example.
+아래의 예를 참조하면 `instanceof` 는 객체에 사용되는 생성자를 확인할 뿐만 아니라 프로토타입 체인을  확인할 수 있습니다.
 
 ```javascript
 console.log(emp1 instanceof Object); // true
@@ -1586,11 +1577,11 @@ Object created in this manner give you full control over newly created object. Y
 
 </details>
 
-## Question 39. How to use constructor functions for inheritance in JavaScript?
+## Question 39. 자바스크립트에서 상속을 사용하려면 생성자 함수를 어떻게 사용해야 하나요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-Let say we have `Person` class which has name, age, salary properties and **incrementSalary()** method.
+name, age, salary 속성을 갖고 있고 **incrementSalary** 메소드를 갖고있는 `Person` 함수를 만들어봅시다.
 
 ```javascript
 function Person(name, age, salary) {
@@ -1603,7 +1594,7 @@ function Person(name, age, salary) {
 }
 ```
 
-Now we wish to create Employee class which contains all the properties of Person class and wanted to add some additional properties into Employee class.
+이제 우리는 Person class의 속성을 모두 포함하는 Employee class를 만들고 싶다고 해보죠. 그리고 Employee 속성에 추가적으로 몇몇 속성들을 좀더 추가하고 싶습니다.
 
 ```javascript
 function Employee(company){
@@ -1613,7 +1604,7 @@ function Employee(company){
 //Prototypal Inheritance 
 Employee.prototype = new Person("Nishant", 24,5000);
 ```
-In the example above, **Employee** type inherits from **Person**. It does so by assigning a new instance of `Person` to `Employee` prototype. After that, every instance of `Employee` inherits its properties and methods from `Person`.
+위의 예에서 **Employee**타입은 **Person** 으로부터 상속받았습니다. 이것은 `Employee` 프로토타입에 `Person`의 새로운 인스턴스를 할당함으로써 수행됩니다. 그후 모든 `Employee` 인스턴스는 `Person`으로부터 속성과 메소드를 상속받습니다. 
 
 ```javascript
 //Prototypal Inheritance 
@@ -1625,27 +1616,27 @@ console.log(emp1 instanceof Person); // true
 console.log(emp1 instanceof Employee); // true
 ```
 
-Let's understand Constructor inheritance 
+이제 Constructor inheritance를 이해해보도록 하겠습니다.
 
 ```javascript
-//Defined Person class
+//Person class 정의
 function Person(name){
 	this.name = name || "Nishant";
 }
 
 var obj = {};
 
-// obj inherit Person class properties and method 
+// obj는 Person class 속성과 메소드를 상속받습니다.
 Person.call(obj); // constructor inheritance
 
 console.log(obj); // Object {name: "Nishant"}
 ```
-Here we saw calling **Person.call(obj)** define the name properties from `Person` to `obj`.
+여기 우리가 **Person.call(obj)**를 호출하는 것을 볼 수 있습니다. 이것은 `Person`으로부터 `obj`에게 이름 속성을 정의합니다. 
 
 ```javascript
 console.log(name in obj); // true
 ```
-Type-based inheritance is best used with developer defined constructor function rather than natively in JavaScript. In addition to this also allows flexibility in how we create similar type of object.
+Type-based 상속은 javascript에서 기본적으로 사용되는 것이 아니라 개발자가 정의한 생성자 함수와 같이 사용하는 것이 좋습니다. 이와 더불어 유사한 유형의 객체를 생성하는 방법도 유연하게 허용됩니다.
 
 </details>
 
@@ -1763,21 +1754,22 @@ delete employee.name;  // fails silently unless it's in strict mode
 
 </details>
 
-## Question 41. Write a log function which will add prefix `(your message)` to every message you log using console.log ? 
- For example, If you log `console.log("Some message")` then output should be **(your message) Some message**
+## Question 41. console.log에 접두사로 `(당신이 쓰고 싶은 메시지)`를 출력하기 위해서는 어떻게 로그함수를 써야할까요? 
+예를 들어, 만약 당신이 `console.log("Some message")`를 로그로 찍으려고 한다면 그때 출력은 **(당신이 쓰고 싶은 메시지) Some message**가 되어야만 합니다.
 
- <details><summary><b>Answer</b></summary>
+ <details><summary><b>정답</b></summary>
 
-Logging error message or some informative message is always required when you dealing with client side JavaScript using console.log method. Some time you want to add some prefix to identify message generated log from your application hence you would like to prefix your app name in every console.log. 
 
-A general way to do this keep adding your app name in every console.log message like 
+에러메시지를 로그로 찍거나 몇몇 정보 메시지들은 항상 당신이 console.log를 사용하면서 자바스크립트에서 다룰때 필요합니다. 경우에 따라 프로그램에서 생성된 메시지 로그를 식별하기 위해 console.log에  접두사를 추가하고 싶을때가 있을 것입니다.
+
+이렇게 하는 일반적인 방법은 보통 다음과 같이 모든 console.log 에 다음과 같이 할 것입니다.
 
 ```javascript
 console.log('your app name' + 'some error message');
 ```
-But doing in this way you have to write your app name everytime when you log message using console.
+그러나 이러한 방식은 모든 로그에 적어줘야 하므로 비효율적입니다.
 
-There are some best way we can achieve this 
+여기 몇몇 성공적인 방법들이 있습니다.
 
 ```javascript
 function appLog() {
@@ -1787,7 +1779,7 @@ function appLog() {
 }
 
 appLog("Some error message"); 
-//output of above console: 'your app name Some error message'
+//콘솔에 다음과 같이 찍힙니다: 'your app name Some error message'
 ```
 
 </details>
@@ -1819,70 +1811,71 @@ For example: We can create string using string literal and using String construc
 ```
 </details>
 
-## Question 43 . What is typical use case for anonymous function in JavaScript ?
+## Question 43 . 자바스크립트에서 익명함수의 사용 사례는 무엇이 있을까요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- Anonymous functions basically used in following scenario.
 
-1. No name is needed if function is only used in one place, then there is no need to add a name to function.
+익명함수는 기본적으로 다음과 같은 시나리오에 사용됩니다.
 
-	Let's take the example of setTimeout function 
-	
-	```javascript
-	setTimeout(function(){
-		alert("Hello");
-	},1000);
-	```
-	Here there is no need of using named function when we are sure 	that function which will alert `hello` would use only once in 	application.
+1. 함수가 한곳에서만 사용되는 경우에는 이름이 필요없으므로, 함수에 이름을 추가할 필요가 없음
 
-2. Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
+  setTimeout 함수의 예를 살펴봅시다.
 
-	Let's take a example of event handler. Notify event of particular 	type (such as click) for a given object. 
-	
-	Let say we have HTML element (button) on which we want to add click event and when user do click on button we would like to execute some logic.
-	
-	```html
-	<button id="myBtn"></button>
-	```
-	Add Event Listener 
-	
-	```javascript
-	var btn = document.getElementById('myBtn');
-	btn.addEventListener('click', function () {
-	  alert('button clicked');
-	});
-	```
-	
-	Above example shows used of anonymous function as a callback function in event handler.
-	
-3. Passing anonymous function as a parameter to calling function.
-	
-	Example: 
-	
-	```javascript
-	// Function which will execute callback function
-	function processCallback(callback){
-		if(typeof callback === 'function'){
-			callback();
-		}
-	}
-	
-	// Call function and pass anonymous function as callback 
-	processCallback(function(){
-		alert("Hi I am anonymous callback function");
-	});
-	```
-The best way to make a decision for using anonymous function is to ask the following question:
+  ```javascript
+  setTimeout(function(){
+  	alert("Hello");
+  },1000);
+  ```
+  여기서는 `hello`알림 기능이 어플리케이션에서 한번만 사용되는 것을 확신한다면 이름을 사용할 필요가 없습니다.
 
- Will the function which I am going to define, be used anywhere else?
+2. 익명함수는 인라인으로 선언되고 인라인 함수는 부모의 범위에서 변수를 엑세스 할 수 있다는 장점이 있음
 
-If your answer is yes then go and create named function rather anonymous function.
+  이벤트 핸들러의 예제를 살펴봅시다. 주어진 오브젝트에 대해 특정 유형(예: 클릭) 이벤트를 알립니다. 
 
-**Advantage of using anonymous function:**
+  클릭 이벤트를 추가하고자 하는 HTML 요소(버튼)이 있다고 가정하고, 사용자가 버튼을 클릭할 때 로직을 실행하고자 합니다.
 
-1. It can reduce a bit of code, particularly in recursive function and in callback function.
-2.  Avoid needless global namespace pollutions.
+  ```html
+  <button id="myBtn"></button>
+  ```
+  이벤트 리스너를 추가합니다. 
+
+  ```javascript
+  var btn = document.getElementById('myBtn');
+  btn.addEventListener('click', function () {
+    alert('button clicked');
+  });
+  ```
+
+  위의 예는 이벤트 핸들러에서 콜백함수로써 익명함수가 사용되는 것을 보여줍니다.
+
+3. 함수를 호출하기 위해 파라미터로 익명함수를 넘겨주는 것
+
+  예: 
+
+  ```javascript
+  // 콜백함수를 실행하는 함수
+  function processCallback(callback){
+  	if(typeof callback === 'function'){
+  		callback();
+  	}
+  }
+  
+  // 콜백으로써 익명함수를 넘겨주고 호출함
+  processCallback(function(){
+  	alert("Hi I am anonymous callback function");
+  });
+  ```
+  익명함수를 사용할지 말지를 결정하는 가장 좋은 방법은 아래와 같은 질문에 답해보는 것 입니다:
+
+정의할 기능들이 다른 곳에서도 쓰이나요?
+
+만약 이 답이 yes 라면 익명함수를 만들기 보다는 함수의 이름을 만들어야 합니다.
+
+**익명함수를 사용하는 장점**
+
+1. 코드의 양을 줄일 수 있습니다. 특히 콜백함수나 재귀함수 같은경우에.
+2.  필요없는 전역변수공간 할당을 피할 수 있습니다.
 
 </details>
 
@@ -1970,8 +1963,8 @@ sentEmail({
 
 </details>
 
-## Question 45. Write code for merge two JavaScript Object dynamically.
-Let say you have two objects 
+## Question 45. 두개의 자바스크립트 객체를 동적으로 합치는 코드를 작성해보세요.
+아래 두 개의 오브젝트를 살펴봅시다. 
 
 ```javascript
 var person = {
@@ -1985,9 +1978,10 @@ var address = {
 	city : 'NewYork'
 } 
 ```
-Write merge function which will take two object and add all the own property of second object into first object.
+첫번째 객체 안에 두번째 객체의 속성을 모두 추가하고 두개의 오브젝트를 가지는 함수를 작성해봅시다.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
 ```javascript
 merge(person , address); 
@@ -1995,22 +1989,22 @@ merge(person , address);
 /* Now person should have 5 properties 
 name , age , addressLine1 , addressLine2 , city */
 ```
-**Method 1: Using ES6, Object.assign method**
+**방법 1: ES6문법인 Object.assign을 사용하는 것**
 
 ```javascript
 const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
 ```
 
-**Method 2: Without using built-in function**
+**방법 2: 미리 만들어진 함수 없이 쓰는 것**
 
 ```javascript
 function merge(toObj, fromObj) {
-  // Make sure both of the parameter is an object
+  // 두개의 파라미터가 오브젝트인지 먼저 확인
   if (typeof toObj === 'object' && typeof fromObj === 'object') {
     for (var pro in fromObj) {
-      // Assign only own properties not inherited properties
+      // 상속되지 않은 고유 속성을 할당합니다.
       if (fromObj.hasOwnProperty(pro)) {
-        // Assign property and value
+        // 속성과 값을 할당합니다.
         toObj[pro] = fromObj[pro];
       }
     }
@@ -2071,13 +2065,13 @@ person.phoneNo = '7777777777';
 
 </details>
 
-## Question 47. What is Function binding ?
+## Question 47. 함수 바인딩이란 무엇인가요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- Function binding falls in advance JavaScript category and this is very popular technique to use in conjunction with event handler and callback function to preserve code execution context while passing function as a parameter.
+함수 바인딩은 미리 자바스크립트 범주로 지정되며, 함수를 매개 변수로 전달하면서 코드 실행 컨텍스트를 보존하기 위해 이벤트 핸들러와 콜백함수와 같이 사용하는 매우 인기있는 기술입니다.
 
-Let's consider the following example:
+다음 예제를 살펴봅시다.
 
 ```javascript
 var clickHandler = {
@@ -2088,15 +2082,15 @@ var clickHandler = {
 };
 
 var btn = document.getElementById('myBtn');
-// Add click event to btn
+// 버튼에 click 이벤트 추가
 btn.addEventListener('click', clickHandler.handleClick);
 ```
 
-Here in this example clickHandler object is created which contain message properties and handleClick method.
+이 예에서는 message 속성과 handleClick 메소드를 포함하느 Handler 객체가 있습니다.
 
-We have assigned handleClick method to a DOM button, which will be executed in response of click. When the button is clicked, then handleClick method is being called and console message. Here console.log should log the `click event handler` message but it actually log `undefined`.
+handleClick 메소드를 DOM 버튼에 할당하였고, 클릭에 대응하여 실행될 것입니다. 버튼이 클릭될 때, handleClick 메소드는 콘솔 메시지를 호출할 것입니다. console.log는 `click event handler`를 출력해야하지만 실제로는 `undefined`를 출력합니다.
 
-The problem of displaying `undefined` is because of the execution context of clickHandler.handleClick method is not being saved hence `this` pointing to button `btn` object. We can fix this issue using bind method.
+`undefined`를 표시하는 이유는 clickHandler의 실행 컨텍스트 때문입니다. handleClick 메소드는 저장되지 않아 `this`는 버튼 `btn`객체를 가리키고 있습니다. 우리는 바인드 메소드를 사용하여 이것을 고칠 수 있습니다.
 
 ```javascript
 var clickHandler = {
@@ -2107,22 +2101,22 @@ var clickHandler = {
 };
 
 var btn = document.getElementById('myBtn');
-// Add click event to btn and bind the clickHandler object
+// 이벤트를 버튼에 추가하고 clickhHandler를 객체 클릭에 바인딩
 btn.addEventListener('click', clickHandler.handleClick.bind(clickHandler));
 ```
 
 `bind` method is available to all the function similar to call and apply method which take argument value of `this`.
 
+`bind` 메소드는 이와 모든 비슷한 함수에 적용이 가능하고 `this`를 가지는 메소드를 적용할 수 있습니다.
+
 </details>
 
-# Coding Questions
+# 코딩 질문들
 
-## Passing values by reference vs by value
-For a JS developer, it's crucially important to understand which values are passed by reference,
-and which ones are passed by value. Remember that objects, including arrays are passed by reference
-while strings, booleans and numbers are passed by value. 
+## 참조로 값을 넘겨주기 vs 값으로 값을 넘겨주기
+Js 개발자들에게 참조로 값을 넘겨주는 것과 값으로 값을 넘겨주는 것을 이해하는 것은 매우 중요합니다. 배열을 포함해 객체들은 참조로서 값을 넘겨주고 문자열, 불리언, 숫자형은 값으로 넘겨준다는 것을 기억합시다.
 
-### 1. What would be the output of following code?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var strA = "hi there";
@@ -2131,14 +2125,13 @@ strB="bye there!";
 console.log (strA)
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `'hi there'` because we're dealing with strings here. Strings are 
-passed by value, that is, copied. 
+결과는 `'hi there'` 이 될 것입니다. 왜냐하면 문자열은 값으로 넘겨지고 복사되기 때문입니다. 
 
 </details>
 
-###  2. What would be the output of following code?
+###  2. 다음 코드의 결과는 무엇일까요?
 ```javascript
 var objA = {prop1: 42};
 var objB = objA; 
@@ -2146,14 +2139,13 @@ objB.prop1 = 90;
 console.log(objA) 
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `{prop1: 90}` because we're dealing with objects here. Objects are 
-passed by reference, that is, `objA` and `objB` point to the same object in memory. 
+이 결과는 `{prop1: 90}`입니다. 왜냐하면 객체는 참조로써 넘겨지고 즉, 이말은 `objA`와 `objB`가 메모리에서 동일한 객체를 가리키고 있다는 뜻이 됩니다. 
 
 </details>
 
-###  3. What would be the output of following code?
+###  3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var objA = {prop1: 42};
@@ -2162,20 +2154,19 @@ objB = {};
 console.log(objA)
 ```
 
+<details><summary><b>정답</b></summary>
 
-<details><summary><b>Answer</b></summary>
+이 결과는 `{prop1: 42}`입니다.
 
-The output will be `{prop1: 42}`. 
+우리가 `objB`에 `objA`를 할당할 때, `objB`변수는 `objB`변수로써 동일한 객체를 가리킬 것입니다.
 
-When we assign `objA` to `objB`, the `objB` variable will point
-to the same object as the `objB` variable.
+그러나 우리가 다시 `objB` 에 빈 객체를 재할당 할 때, 우리는 단순하게 `objB` 변수가 참조하는 곳을 바꾼다고 생각할 수 있습니다.
 
-However, when we reassign `objB` to an empty object, we simply change where `objB` variable references to.
-This doesn't affect where `objA` variable references to. 
+하지만 이것은 `objA`에게 영향을 끼치지 않습니다.
 
 </details>
 
-###  4. What would be the output of following code?
+###  4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var arrA = [0,1,2,3,4,5];
@@ -2184,14 +2175,12 @@ arrB[0]=42;
 console.log(arrA)
 ```
 
+<details><summary><b>정답</b></summary>
 
-<details><summary><b>Answer</b></summary>
 
-The output will be `[42,1,2,3,4,5]`. 
+이것의 결과는 `[42,1,2,3,4,5]` 입니다. 
 
-Arrays are object in JavaScript and they are passed and assigned by reference. This is why
-both `arrA` and `arrB` point to the same array `[0,1,2,3,4,5]`. That's why changing the first
-element of the `arrB` will also modify `arrA`: it's the same array in the memory.
+배열은 자바스크립트 안의 객체이고 그것들은 참조에의해 값이 할당되고 넘겨집니다. 이것이 `arrA`와 `arrB`가 동일한 배열 `[0,1,2,3,4,5]` 를 가리키고 있는 이유이기도 합니다. 따라서 `arrB` 의 첫번째 원소가 바뀌면 `arrA`또한 바뀌게 됩니다. 이것이 메모리의 동일한 배열이기 떄문입니다.
 
 </details>
 
