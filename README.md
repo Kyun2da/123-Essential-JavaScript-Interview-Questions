@@ -100,8 +100,9 @@ var emp3 = new Employee('Erich Fromm', 'Company 3', 1299483);
 
 ## Question 4. Javascript 에서 “closure” 는 무엇인가요? 예시를 들어줄 수 있나요 ? 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 클로저는 다른 함수(부모 함수라고 부릅니다.) 안에 정의된 함수입니다. 그래서 그 부모 함수의 scope안에 선언되고 정의된 변수에 접근할 수 있습니다.
+
 
 
 
@@ -112,17 +113,17 @@ Closure는 세가지의 scope 상황에서 변수에 접근 권한을 가집니�
 - 전역 namespace에 선언된 변수 
 
 ```javascript
-var globalVar = "abc"; //Global variable
+var globalVar = "abc"; // 전역 변수
 
-// Parent self-invoking function
-(function outerFunction (outerArg) { // start of outerFunction's scope
+// 부모의 자체 호출 함수
+(function outerFunction (outerArg) { // 외부 함수의 scope 시작. 
 
-  var outerFuncVar = 'x'; // Variable declared in outerFunction's function scope   
+  var outerFuncVar = 'x'; // 외부 함수 scope에 선언된 변수   
   
-  // Closure self-invoking function
-  (function innerFunction (innerArg) { // start of innerFunction's scope
+  // Closure 자체 호출 함수 
+  (function innerFunction (innerArg) { // 내부 함수의 scope 시작.
 
-    var innerFuncVar = "y"; // variable declared in innerFunction's function scope
+    var innerFuncVar = "y"; // 내부 함수의 scope에 선언된 변수 
     console.log(         
       "outerArg = " + outerArg + "\n" +
       "outerFuncVar = " + outerFuncVar + "\n" +
@@ -130,13 +131,13 @@ var globalVar = "abc"; //Global variable
       "innerFuncVar = " + innerFuncVar + "\n" +
       "globalVar = " + globalVar);
   	
-  // end of innerFunction's scope
+  // 내부 함수의 scope 종료. 
   
-  })(5); // Pass 5 as parameter to our Closure
+  })(5); // Clousure에 숫자 5를 매개변수로 넘깁니다. 
 
-// end of outerFunction's scope
+// 외부 함수 scope 종료. 
 
-})(7); // Pass 7 as parameter to the Parent function
+})(7); // 부모 함수에 숫자 7을 매개변수로 넘깁니다.
 ```
 
 `outerFunction` 안에 정의된 `innerFunction` (내부 함수)는 closure 입니다. 그래서 결과적으로 `outerFunction` scope 와 프로그램의 전역 변수 scope 안에서 선언되고 정의된 모든 변수에 접근이 가능합니다.
@@ -188,66 +189,67 @@ function mul (x) {
 
 </details>
 
-## Question 6. How to empty an array in JavaScript?
-For instance:
+## Question 6. Javascript에서 배열을 비우는 방법은 무엇인가요 ? 
+예시:
 
 ```javascript
 var arrayList =  ['a', 'b', 'c', 'd', 'e', 'f'];
 ```
 
-How can we empty the array above?
+위에 보이는 배열을 어떻게 비울 수 있나요?
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-There are a couple of ways by which we can empty an array, So let's discuss all the possible way by which we can empty an array.
+우리가 배열을 비울 수 있는 몇가지 방법이 있습니다. 
+그러므로, 가능한 모든 방법들에 대해서 다뤄보겠습니다.
 
-#### Method 1
+#### 방법 1
 
 ```javascript
 arrayList = [];
 ```
 
-The code above will set the variable `arrayList` to a new empty array. This is recommended if you don't have **references to the original array** `arrayList` anywhere else because It will actually create a new empty array. You should be careful with this way of empty the array, because if you have referenced this array from another variable, then the original reference array will remain unchanged, Only use this way if you have only referenced the array by its original variable `arrayList`.
+위의 코드는 `arrayList` 변수를 새로운 빈 배열로 설정할겁니다. 이러한 방법은 **원래 배열에 대한 참조**가 없을 경우에 추천됩니다. 왜냐하면, 이것은 실제로 새로운 빈 배열을 생성할 것이기 때문입니다. 만약 다른 변수에서 이 배열을 참조한다면 이 배열이 변해도 참조한 변수엔 예전 값이 변하지 않고 남아있습니다. 원래 변수`arrayList`로만 배열을 참조한 경우에 이 방법을 사용하세요. 
 
-For instance:
+예시:
 
 ```javascript
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList = []; // Empty the array
-console.log(anotherArrayList); // Output ['a', 'b', 'c', 'd', 'e', 'f']
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // 배열을 만듧니다.
+var anotherArrayList = arrayList;  // 다른 변수가 arrayList를 참조합니다.
+arrayList = []; // arrayList 배열을 비웁니다.
+console.log(anotherArrayList); // 출력 결과 ['a', 'b', 'c', 'd', 'e', 'f']
 ```
 
-#### Method 2
+#### 방법 2
 
 ```javascript
 arrayList.length = 0;
 ```
 
-The code above will clear the existing array by setting its length to 0. This way of emptying an array will also update all the reference variables that point to the original array. 
+위의 코드는 배열의 길이를 0으로 설정함으로써 기존 배열을 비웁니다. 이렇게 배열을 비우는 방법은 또한 기존 배열을 가리키고 있는 모든 참조 변수를 업데이트 합니다. 
 
-For instance:
+예시:
 
 ```javascript
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList.length = 0; // Empty the array by setting length to 0
-console.log(anotherArrayList); // Output []
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // 배열을 만듧니다.
+var anotherArrayList = arrayList;  // 다른 변수가 arrayList를 참조합니다. 
+arrayList.length = 0; // length를 0으로 설정하여 배열을 비웁니다. 
+console.log(anotherArrayList); // 출력 결과 []
 ```
 
-#### Method 3
+#### 방법 3
 
 ```javascript
 arrayList.splice(0, arrayList.length);
 ```
 
-Above implementation will also work perfectly. This way of empty the array will also update all the references of the original array.
+위의 구현은 또한 완벽하게 동작합니다. 이 방법 또한 기존 배열을 참조한 모든 변수들을 업데이트 합니다. 
 
 ```javascript
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList.splice(0, arrayList.length); // Empty the array by setting length to 0
-console.log(anotherArrayList); // Output []
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // 배열을 만듧니다.
+var anotherArrayList = arrayList;  // 다른 변수가 arrayList를 참조합니다. 
+arrayList.splice(0, arrayList.length); // length를 0으로 설정하여 배열을 비웁니다.
+console.log(anotherArrayList); // 출력 결과 []
 ```
 
 #### Method 4
@@ -258,7 +260,7 @@ while(arrayList.length) {
 }
 ```
 
-Above implementation can also empty the array. But not recommended to use often.
+위의 구현도 배열을 비울 수 있습니다. 그러나 자주 쓰도록 권장하지는 않습니다.
 
 
 </details>
@@ -330,7 +332,7 @@ Array.isArray(arrayList);
 
 </details>
 
-## Question 8. What will be the output of the following code?
+## Question 8. 다음 코드의 출력값은 무엇일까요 ? 
 
 ```javascript
 var output = (function(x) {
@@ -340,9 +342,10 @@ var output = (function(x) {
 
 console.log(output);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will output `0` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **local variable**. `delete` operator doesn't affect local variables.
+
+위의 코드는 출력값으로 `0`을 출력할 것입니다. `delete` 연산자는 한 객체(object)의 한 속성(property)를 지우기 위해서 쓰입니다. 여기 `x` 는 객체가 아니고, **지역 변수** 입니다. 그래서 `delete` 연산자는 이 지역 변수에 아무런 영향을 주지 못합니다. 
 
 
 </details>
@@ -3916,4 +3919,4 @@ This book is released under a Creative Commons Attribution-Noncommercial- No Der
 
 What this means it that the project is free to read and use, but the license does not permit commercial use of the material (i.e you can freely print out the questions for your own use, but you can't sell it). I'm trying to best to publish all of my books in a free + purchased (if you would like to support these projects) form so I would greatly appreciate it if you would respect these terms.
 
-Copyright Iurii Katkov and Nishant Kumar, 2017.
+Copyright Iurii Katkov and Nishant Kumar, 2017. 
