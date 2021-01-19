@@ -2109,14 +2109,12 @@ btn.addEventListener('click', clickHandler.handleClick.bind(clickHandler));
 
 </details>
 
-# Coding Questions
+# 코딩 질문들
 
-## Passing values by reference vs by value
-For a JS developer, it's crucially important to understand which values are passed by reference,
-and which ones are passed by value. Remember that objects, including arrays are passed by reference
-while strings, booleans and numbers are passed by value. 
+## 참조로 값을 넘겨주기 vs 값으로 값을 넘겨주기
+Js 개발자들에게 참조로 값을 넘겨주는 것과 값으로 값을 넘겨주는 것을 이해하는 것은 매우 중요합니다. 배열을 포함해 객체들은 참조로서 값을 넘겨주고 문자열, 불리언, 숫자형은 값으로 넘겨준다는 것을 기억합시다.
 
-### 1. What would be the output of following code?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var strA = "hi there";
@@ -2125,14 +2123,13 @@ strB="bye there!";
 console.log (strA)
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `'hi there'` because we're dealing with strings here. Strings are 
-passed by value, that is, copied. 
+결과는 `'hi there'` 이 될 것입니다. 왜냐하면 문자열은 값으로 넘겨지고 복사되기 때문입니다. 
 
 </details>
 
-###  2. What would be the output of following code?
+###  2. 다음 코드의 결과는 무엇일까요?
 ```javascript
 var objA = {prop1: 42};
 var objB = objA; 
@@ -2140,14 +2137,13 @@ objB.prop1 = 90;
 console.log(objA) 
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `{prop1: 90}` because we're dealing with objects here. Objects are 
-passed by reference, that is, `objA` and `objB` point to the same object in memory. 
+이 결과는 `{prop1: 90}`입니다. 왜냐하면 객체는 참조로써 넘겨지고 즉, 이말은 `objA`와 `objB`가 메모리에서 동일한 객체를 가리키고 있다는 뜻이 됩니다. 
 
 </details>
 
-###  3. What would be the output of following code?
+###  3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var objA = {prop1: 42};
@@ -2156,20 +2152,19 @@ objB = {};
 console.log(objA)
 ```
 
+<details><summary><b>정답</b></summary>
 
-<details><summary><b>Answer</b></summary>
+이 결과는 `{prop1: 42}`입니다.
 
-The output will be `{prop1: 42}`. 
+우리가 `objB`에 `objA`를 할당할 때, `objB`변수는 `objB`변수로써 동일한 객체를 가리킬 것입니다.
 
-When we assign `objA` to `objB`, the `objB` variable will point
-to the same object as the `objB` variable.
+그러나 우리가 다시 `objB` 에 빈 객체를 재할당 할 때, 우리는 단순하게 `objB` 변수가 참조하는 곳을 바꾼다고 생각할 수 있습니다.
 
-However, when we reassign `objB` to an empty object, we simply change where `objB` variable references to.
-This doesn't affect where `objA` variable references to. 
+하지만 이것은 `objA`에게 영향을 끼치지 않습니다.
 
 </details>
 
-###  4. What would be the output of following code?
+###  4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var arrA = [0,1,2,3,4,5];
@@ -2178,14 +2173,12 @@ arrB[0]=42;
 console.log(arrA)
 ```
 
+<details><summary><b>정답</b></summary>
 
-<details><summary><b>Answer</b></summary>
 
-The output will be `[42,1,2,3,4,5]`. 
+이것의 결과는 `[42,1,2,3,4,5]` 입니다. 
 
-Arrays are object in JavaScript and they are passed and assigned by reference. This is why
-both `arrA` and `arrB` point to the same array `[0,1,2,3,4,5]`. That's why changing the first
-element of the `arrB` will also modify `arrA`: it's the same array in the memory.
+배열은 자바스크립트 안의 객체이고 그것들은 참조에의해 값이 할당되고 넘겨집니다. 이것이 `arrA`와 `arrB`가 동일한 배열 `[0,1,2,3,4,5]` 를 가리키고 있는 이유이기도 합니다. 따라서 `arrB` 의 첫번째 원소가 바뀌면 `arrA`또한 바뀌게 됩니다. 이것이 메모리의 동일한 배열이기 떄문입니다.
 
 </details>
 
