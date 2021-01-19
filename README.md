@@ -332,7 +332,7 @@ Array.isArray(arrayList);
 
 </details>
 
-## Question 8. What will be the output of the following code?
+## Question 8. 다음 코드의 출력값은 무엇일까요 ? 
 
 ```javascript
 var output = (function(x) {
@@ -342,9 +342,10 @@ var output = (function(x) {
 
 console.log(output);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will output `0` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **local variable**. `delete` operator doesn't affect local variables.
+
+위의 코드는 출력값으로 `0`을 출력할 것입니다. `delete` 연산자는 한 객체(object)의 한 속성(property)를 지우기 위해서 쓰입니다. 여기 `x` 는 객체가 아니고, **지역 변수** 입니다. 그래서 `delete` 연산자는 이 지역 변수에 아무런 영향을 주지 못합니다. 
 
 
 </details>
@@ -3918,4 +3919,4 @@ This book is released under a Creative Commons Attribution-Noncommercial- No Der
 
 What this means it that the project is free to read and use, but the license does not permit commercial use of the material (i.e you can freely print out the questions for your own use, but you can't sell it). I'm trying to best to publish all of my books in a free + purchased (if you would like to support these projects) form so I would greatly appreciate it if you would respect these terms.
 
-Copyright Iurii Katkov and Nishant Kumar, 2017.
+Copyright Iurii Katkov and Nishant Kumar, 2017. 
