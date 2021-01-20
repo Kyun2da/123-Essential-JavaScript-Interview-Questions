@@ -2185,7 +2185,7 @@ console.log(arrA)
 
 </details>
 
-###  5. What would be the output of following code?
+###  5. 다음 코드의 결과는 무엇일까요?
 ```javascript
 var arrA = [0,1,2,3,4,5];
 var arrB = arrA.slice();
@@ -2193,17 +2193,16 @@ arrB[0]=42;
 console.log(arrA)
 ```
 
+<details><summary><b>정답</b></summary>
 
-<details><summary><b>Answer</b></summary>
 
-The output will be `[0,1,2,3,4,5]`. 
+결과는 `[0,1,2,3,4,5]` 입니다. 
 
-The `slice` function copies all the elements of the array returning the new array. That's why
-`arrA` and `arrB` reference two completely different arrays. 
+`slice`함수는 배열의 모든 원소를 복사해서 새로운 배열을 리턴합니다. `arrA` 와 `arrB` 가 완전히 다른 배열인 이유입니다.
 
 </details>
 
-###  6. What would be the output of following code?
+###  6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var arrA = [{prop1: "value of array A!!"},  {someProp: "also value of array A!"}, 3,4,5];
@@ -2212,16 +2211,16 @@ arrB[0].prop1=42;
 console.log(arrA);
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
 
-Arrays are object in JS, so both varaibles arrA and arrB point to the same array. Changing
-`arrB[0]` is the same as changing `arrA[0]`
+결과는 `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]` 입니다. 
+
+배열들은 JS 안의 객체입니다. 그래서 arrA와 arrB도 같은 배열을 가리키고 있습니다. `arrB[0]`을 바꾸는 것은 `arrA[0]`을 바꾸는 것이기도 합니다.
 
 </details>
 
-### 7. What would be the output of following code?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var arrA = [{prop1: "value of array A!!"}, {someProp: "also value of array A!"},3,4,5];
@@ -2231,12 +2230,14 @@ arrB[3] = 20;
 console.log(arrA);
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
 
-The `slice` function copies all the elements of the array returning the new array. However,
-it doesn't do deep copying. Instead it does shallow copying. You can imagine slice implemented like this: 
+이 코드의 결과는 `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]` 입니다. 
+
+이 `slice` 함수는 배열의 모든 원소를 복사해서 새로운 배열을 리턴합니다. 그러나 이것은 깊은 복사를 시행하는 것이 아닙니다.
+
+대신 이것은 얕은 복사를 실행합니다. 당신은 slice를 아래 코드와 같이 시행된다고 생각할 수 있습니다.
 
  ```javascript
 function slice(arr) {
@@ -2248,14 +2249,15 @@ function slice(arr) {
 }
  ```
 
-Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string, 
-it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference. 
+`result.push(arr[i])` 의 라인을 보시죠. 만약 `arr[i]`가 숫자나 문자열이라면 이것은 값으로 넘겨집니다.
 
-In case of our array `arr[0]` is an object `{prop1: "value of array A!!"}`. Only the reference
-to this object will be copied. This effectively means that arrays arrA and arrB share first
-two elements. 
+다른 말로 복사된다는 뜻입니다. 만약 `arr[i]`가 오브젝트라면 이것은 참조로 넘겨집니다.
 
-This is why changing the property of `arrB[0]` in `arrB` will also change the `arrA[0]`.
+우리가 위에서 했던 배열같은 경우에는 `arr[0]`은 `{prop1: "value of array A!!"}` 인 객체입니다. 단지 객체를 참조하여 복사하는 것 입니다.
+
+이것은 arrA 와 arrB가 첫 두 원소를 공유하고 있다는 의미이기도 합니다.
+
+따라서 이것이 `arrB` 안에 있는  `arrB[0]`의 속성을 변화시키는 것이 `arrA[0]`도 변화시키는 이유입니다.
 
 </details>
 
