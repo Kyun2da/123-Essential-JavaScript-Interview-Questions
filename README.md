@@ -368,7 +368,7 @@ console.log(output);
 
 </details>
 
-## Question 10. What will be the output of the following code?
+## Question 10. 다음 코드의 결과 값은 무엇이 될까요 ?
 
 ```javascript
 var x = { foo : 1};
@@ -379,9 +379,10 @@ var output = (function() {
 
 console.log(output);
 ```
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The code above will output `undefined` as output. `delete` operator is used to delete a property from an object. Here `x` is an object which has foo as a property and from a self-invoking function, we are deleting the `foo` property of object `x` and after deletion, we are trying to reference deleted property `foo` which result `undefined`.
+
+위 코드의 결과값은 `undefined` 입니다.`delete` 연산자는 객체의 속성을 삭제하는데 쓰입니다. 여기 `x` 는 foo를 속성으로 가지고 있는 객체이고,  자기 호출 함수 (self-invoking function)에서 `foo` 속성을 지우려고 합니다. 그리고 삭제 이후에, 우리는 그 삭제된 `foo` 속성을 참조하려고 하기 때문에 결과는  `undefined` 가 됩니다. 
 
 
 </details>
