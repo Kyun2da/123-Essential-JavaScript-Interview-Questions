@@ -2261,22 +2261,23 @@ function slice(arr) {
 
 </details>
 
-## Hoisting 
+## 호이스팅 
 
 ### 1. console.log(employeeId);
 
-1.  Some Value
+1.  값들
 2.  Undefined 
-3.  Type Error
-4.  ReferenceError: employeeId is not defined 
+3.  타입에러
+4.  ReferenceError: employeeId is not defined (참조에러)
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) ReferenceError: employeeId is not defined 
 
 </details>
 
-###  2. What would be the output of following code?
+###  2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 console.log(employeeId);
@@ -2288,13 +2289,14 @@ var employeeId = '19000';
 3.  Type Error
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined 
 
 </details>
 
-### 3. What would be the output of following code?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = '1234abe';
@@ -2309,13 +2311,14 @@ var employeeId = '1234abe';
 3.  Type Error
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined 
 
 </details>
 
-### 4. What would be the output of following code?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = '1234abe';
@@ -2333,13 +2336,14 @@ var employeeId = '1234abe';
 3.  '1234abe'
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined 
 
 </details>
 
-### 5. What would be the output of following code?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2355,13 +2359,14 @@ var employeeId = '1234abe';
 3.  'Hi I am inside displayFunc'
 4.  ReferenceError: displayFunc is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) undefined 
 
 </details>
 
-### 6. What would be the output of following code?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'abc123';
@@ -2378,13 +2383,14 @@ console.log(employeeId);
 3.  'abc123'
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) '123bcd' 
 
 </details>
 
-### 7. What would be the output of following code?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'abc123';
@@ -2404,13 +2410,14 @@ console.log(employeeId);
 3.  'abc123'
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) 'abc123' 
 
 </details>
 
-### 8. What would be the output of following code?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'abc123';
@@ -2431,13 +2438,14 @@ foo();
 3.  string
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'function'
 
 </details>
 
-### 9. What would be the output of following code?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function foo() {
@@ -2457,13 +2465,14 @@ foo();
 3.  'Car'
 4.  ReferenceError: product is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) undefined
 
 </details>
 
-### 10. What would be the output of following code?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function foo() {
@@ -2485,7 +2494,8 @@ foo();
 3.  function function
 4.  ReferenceError: bar is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) function function
 
