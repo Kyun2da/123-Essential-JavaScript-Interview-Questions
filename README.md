@@ -2503,7 +2503,7 @@ foo();
 
 ## Objects
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2527,14 +2527,14 @@ foo();
 2.  undefined 
 3.  ["name", "salary", "country", "phoneNo"]
 4.  ["name", "salary", "country"]
-	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) ["name", "salary", "country", "phoneNo"]
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2558,14 +2558,14 @@ foo();
 2.  undefined 
 3.  ["name", "salary", "country", "phoneNo"]
 4.  ["name", "salary", "country"]
-	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) ["name", "salary", "country"]
 
 </details>
 
-### 3. What would be the output of following code ?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2586,13 +2586,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 4. What would be the output of following code ?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2607,13 +2608,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 5. What would be the output of following code ?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2632,13 +2634,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 6. What would be the output of following code ?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2655,13 +2658,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 7. What would be the output of following code ?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2678,13 +2682,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) true true
 
 </details>
 
-### 8. What would be the output of following code ?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2703,13 +2708,14 @@ foo();
 3.  true true true true
 4.  true true false false
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) true true true true
 
 </details>
 
-### 9. What would be the output of following code ?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2727,13 +2733,14 @@ foo();
 3.  foo foo
 4.  bar foo
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) bar bar
 
 </details>
 
-### 10. What would be the output of following code ?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2753,13 +2760,14 @@ foo();
 3.  foo foo
 4.  bar foo
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) foo foo
 
 </details>
 
-### 11. What would be the output of following code ?
+### 11. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2779,7 +2787,8 @@ foo();
 3.  foo foo
 4.  undefined bar
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined undefined
 
