@@ -2794,9 +2794,9 @@ foo();
 
 </details>
 
-## Arrays
+## 배열
 
-### 1. What would be the output of following code?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2811,13 +2811,14 @@ foo();
 3.  ["100"] 1
 4.  ReferenceError: array is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) ["100"] 1
 
 </details>
 
-### 2. What would be the output of following code?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2836,13 +2837,14 @@ foo();
 3.  [] [] ['1',2,'3',4,5.6] 5
 4.  [] [] [Array[5]] 5 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- 1) [] [] [Array[5]] 1
+
+ 1) [] [undefined × 100] Array[5] 1
 
 </details>
 
-### 3. What would be the output of following code?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function () {
@@ -2858,13 +2860,14 @@ foo();
 3.  6
 4.  undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 11
 
 </details>
 
-### 4. What would be the output of following code?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2880,13 +2883,14 @@ foo();
 3.  6
 4.  undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) 6
 
 </details>
 
-### 5. What would be the output of following code?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2902,13 +2906,14 @@ foo();
 3.  Type Error
 4.  undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
 
 </details>
 
-### 6. What would be the output of following code?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2925,13 +2930,14 @@ foo();
 3.  1 -1 -1 -1
 4.  1 undefined -1 4
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 1 -1 -1 4
 
 </details>
 
-### 7. What would be the output of following code?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2947,13 +2953,14 @@ foo();
 3.  1 1 -1 
 4.  1 undefined undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 1 6 -1
 
 </details>
 
-### 8. What would be the output of following code?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2976,13 +2983,14 @@ foo();
 3.  [ 2, 4, 8, 12, 16 ] true 
 4.  [ 2, 4, 8, 12, 16 ] false
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) [ 2, 4, 8, 12, 16 ] true 
 
 </details>
 
-### 9. What would be the output of following code?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3015,8 +3023,7 @@ foo();
 	[ 2, '12', true,false ]
 	[ 2, '12', true,false]
 
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
  1) [ 2, '12', true ]
 			 [ 2, '12', true ]
@@ -3025,7 +3032,7 @@ foo();
 			 
 </details>
 
-### 10. What would be the output of following code?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3059,7 +3066,7 @@ foo();
    []
    [ 'foo', 'bar', 'john', 'ritz' ]
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
  1) [ 'bar', 'john', 'ritz' ]
 		 	 [ 'bar', 'john' ]
@@ -3069,7 +3076,7 @@ foo();
 
 </details>
 
-### 11. What would be the output of following code?
+### 11. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3085,13 +3092,14 @@ foo();
 3.  [ 'bar', 'john' ] [ 'bar', 'john' ] [ 'bar', 'john' ]
 4.  [ 'bar', 'john' ] [] []
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1.  [ 'bar', 'john' ] [] [ 'foo' ] 
 
 </details>
 
-### 12. What would be the output of following code?
+### 12. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3106,7 +3114,8 @@ foo();
 3.  [ 15, 16, 2, 23, 42, 8 ]
 4.  [ 2, 8, 15, 16, 23, 42 ]
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3.  [ 15, 16, 2, 23, 42, 8 ]
 
