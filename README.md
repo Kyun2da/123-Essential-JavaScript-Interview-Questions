@@ -3123,7 +3123,7 @@ foo();
 
 ## Functions
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function funcA(){
@@ -3146,13 +3146,14 @@ console.log(funcA());
 3.  Type Error
 4.  ReferenceError: this is not defined 
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3170,13 +3171,14 @@ console.log(obj.innerMessage);
 3.  Type Error
 4.  undefined true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) undefined true
 
 </details>
 
-### 3. What would be the output of following code ?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3194,13 +3196,14 @@ console.log(obj.innerMessage());
 3.  Type Error
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) Hello
 
 </details>
 
-### 4. What would be the output of following code ?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3219,13 +3222,13 @@ console.log(obj.innerMessage());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
  3) undefined
 	
 </details>
 
-### 5. What would be the output of following code ?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3245,13 +3248,14 @@ console.log(obj.innerMessage());
 3.  undefined
 4.  ReferenceError: self.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'Hello'
 
 </details>
 
-### 6. What would be the output of following code ?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc(){
@@ -3267,13 +3271,14 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) undefined
 
 </details>
 
-### 7. What would be the output of following code ?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc(){
@@ -3289,13 +3294,14 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'Hi John'
 
 </details>
 
-### 8. What would be the output of following code ?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc() {
@@ -3310,13 +3316,14 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'Hi John'
 
 </details>
 
-### 9. What would be the output of following code ?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc(param1,param2) {
@@ -3332,13 +3339,14 @@ console.log(myFunc("a","b","c","d"));
 3.  undefined
 4.  ReferenceError
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  a) 2 2 2 
 
 </details>
 
-### 10. What would be the output of following code ?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc() {
@@ -3354,7 +3362,8 @@ console.log(myFunc("a","b","c","d"));
 3.  undefined
 4.  ReferenceError
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 0 2 4 
 
