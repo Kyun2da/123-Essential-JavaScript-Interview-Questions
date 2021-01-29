@@ -2186,7 +2186,7 @@ console.log(arrA)
 
 </details>
 
-###  5. What would be the output of following code?
+###  5. 다음 코드의 결과는 무엇일까요?
 ```javascript
 var arrA = [0,1,2,3,4,5];
 var arrB = arrA.slice();
@@ -2194,17 +2194,16 @@ arrB[0]=42;
 console.log(arrA)
 ```
 
+<details><summary><b>정답</b></summary>
 
-<details><summary><b>Answer</b></summary>
 
-The output will be `[0,1,2,3,4,5]`. 
+결과는 `[0,1,2,3,4,5]` 입니다. 
 
-The `slice` function copies all the elements of the array returning the new array. That's why
-`arrA` and `arrB` reference two completely different arrays. 
+`slice`함수는 배열의 모든 원소를 복사해서 새로운 배열을 리턴합니다. `arrA` 와 `arrB` 가 완전히 다른 배열인 이유입니다.
 
 </details>
 
-###  6. What would be the output of following code?
+###  6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var arrA = [{prop1: "value of array A!!"},  {someProp: "also value of array A!"}, 3,4,5];
@@ -2213,16 +2212,16 @@ arrB[0].prop1=42;
 console.log(arrA);
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
 
-Arrays are object in JS, so both varaibles arrA and arrB point to the same array. Changing
-`arrB[0]` is the same as changing `arrA[0]`
+결과는 `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]` 입니다. 
+
+배열들은 JS 안의 객체입니다. 그래서 arrA와 arrB도 같은 배열을 가리키고 있습니다. `arrB[0]`을 바꾸는 것은 `arrA[0]`을 바꾸는 것이기도 합니다.
 
 </details>
 
-### 7. What would be the output of following code?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var arrA = [{prop1: "value of array A!!"}, {someProp: "also value of array A!"},3,4,5];
@@ -2232,12 +2231,14 @@ arrB[3] = 20;
 console.log(arrA);
 ```
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
 
-The `slice` function copies all the elements of the array returning the new array. However,
-it doesn't do deep copying. Instead it does shallow copying. You can imagine slice implemented like this: 
+이 코드의 결과는 `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]` 입니다. 
+
+이 `slice` 함수는 배열의 모든 원소를 복사해서 새로운 배열을 리턴합니다. 그러나 이것은 깊은 복사를 시행하는 것이 아닙니다.
+
+대신 이것은 얕은 복사를 실행합니다. 당신은 slice를 아래 코드와 같이 시행된다고 생각할 수 있습니다.
 
  ```javascript
 function slice(arr) {
@@ -2249,33 +2250,35 @@ function slice(arr) {
 }
  ```
 
-Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string, 
-it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference. 
+`result.push(arr[i])` 의 라인을 보시죠. 만약 `arr[i]`가 숫자나 문자열이라면 이것은 값으로 넘겨집니다.
 
-In case of our array `arr[0]` is an object `{prop1: "value of array A!!"}`. Only the reference
-to this object will be copied. This effectively means that arrays arrA and arrB share first
-two elements. 
+다른 말로 복사된다는 뜻입니다. 만약 `arr[i]`가 오브젝트라면 이것은 참조로 넘겨집니다.
 
-This is why changing the property of `arrB[0]` in `arrB` will also change the `arrA[0]`.
+우리가 위에서 했던 배열같은 경우에는 `arr[0]`은 `{prop1: "value of array A!!"}` 인 객체입니다. 단지 객체를 참조하여 복사하는 것 입니다.
+
+이것은 arrA 와 arrB가 첫 두 원소를 공유하고 있다는 의미이기도 합니다.
+
+따라서 이것이 `arrB` 안에 있는  `arrB[0]`의 속성을 변화시키는 것이 `arrA[0]`도 변화시키는 이유입니다.
 
 </details>
 
-## Hoisting 
+## 호이스팅 
 
 ### 1. console.log(employeeId);
 
-1.  Some Value
+1.  값들
 2.  Undefined 
-3.  Type Error
-4.  ReferenceError: employeeId is not defined 
+3.  타입에러
+4.  ReferenceError: employeeId is not defined (참조에러)
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) ReferenceError: employeeId is not defined 
 
 </details>
 
-###  2. What would be the output of following code?
+###  2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 console.log(employeeId);
@@ -2287,13 +2290,14 @@ var employeeId = '19000';
 3.  Type Error
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined 
 
 </details>
 
-### 3. What would be the output of following code?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = '1234abe';
@@ -2308,13 +2312,14 @@ var employeeId = '1234abe';
 3.  Type Error
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined 
 
 </details>
 
-### 4. What would be the output of following code?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = '1234abe';
@@ -2332,13 +2337,14 @@ var employeeId = '1234abe';
 3.  '1234abe'
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined 
 
 </details>
 
-### 5. What would be the output of following code?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2354,13 +2360,14 @@ var employeeId = '1234abe';
 3.  'Hi I am inside displayFunc'
 4.  ReferenceError: displayFunc is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) undefined 
 
 </details>
 
-### 6. What would be the output of following code?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'abc123';
@@ -2377,13 +2384,14 @@ console.log(employeeId);
 3.  'abc123'
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) '123bcd' 
 
 </details>
 
-### 7. What would be the output of following code?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'abc123';
@@ -2403,13 +2411,14 @@ console.log(employeeId);
 3.  'abc123'
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) 'abc123' 
 
 </details>
 
-### 8. What would be the output of following code?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'abc123';
@@ -2430,13 +2439,14 @@ foo();
 3.  string
 4.  ReferenceError: employeeId is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'function'
 
 </details>
 
-### 9. What would be the output of following code?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function foo() {
@@ -2456,13 +2466,14 @@ foo();
 3.  'Car'
 4.  ReferenceError: product is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) undefined
 
 </details>
 
-### 10. What would be the output of following code?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function foo() {
@@ -2484,7 +2495,8 @@ foo();
 3.  function function
 4.  ReferenceError: bar is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) function function
 
@@ -2492,7 +2504,7 @@ foo();
 
 ## Objects
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2516,14 +2528,14 @@ foo();
 2.  undefined 
 3.  ["name", "salary", "country", "phoneNo"]
 4.  ["name", "salary", "country"]
-	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) ["name", "salary", "country", "phoneNo"]
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2547,14 +2559,14 @@ foo();
 2.  undefined 
 3.  ["name", "salary", "country", "phoneNo"]
 4.  ["name", "salary", "country"]
-	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) ["name", "salary", "country"]
 
 </details>
 
-### 3. What would be the output of following code ?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2575,13 +2587,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 4. What would be the output of following code ?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2596,13 +2609,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 5. What would be the output of following code ?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2621,13 +2635,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 6. What would be the output of following code ?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2644,13 +2659,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) false false
 
 </details>
 
-### 7. What would be the output of following code ?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2667,13 +2683,14 @@ foo();
 3.  true false
 4.  true true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) true true
 
 </details>
 
-### 8. What would be the output of following code ?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2692,13 +2709,14 @@ foo();
 3.  true true true true
 4.  true true false false
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) true true true true
 
 </details>
 
-### 9. What would be the output of following code ?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2716,13 +2734,14 @@ foo();
 3.  foo foo
 4.  bar foo
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) bar bar
 
 </details>
 
-### 10. What would be the output of following code ?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2742,13 +2761,14 @@ foo();
 3.  foo foo
 4.  bar foo
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) foo foo
 
 </details>
 
-### 11. What would be the output of following code ?
+### 11. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2768,15 +2788,16 @@ foo();
 3.  foo foo
 4.  undefined bar
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined undefined
 
 </details>
 
-## Arrays
+## 배열
 
-### 1. What would be the output of following code?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2791,13 +2812,14 @@ foo();
 3.  ["100"] 1
 4.  ReferenceError: array is not defined 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) ["100"] 1
 
 </details>
 
-### 2. What would be the output of following code?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -2816,13 +2838,14 @@ foo();
 3.  [] [] ['1',2,'3',4,5.6] 5
 4.  [] [] [Array[5]] 5 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
- 1) [] [] [Array[5]] 1
+
+ 1) [] [undefined × 100] Array[5] 1
 
 </details>
 
-### 3. What would be the output of following code?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function () {
@@ -2838,13 +2861,14 @@ foo();
 3.  6
 4.  undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 11
 
 </details>
 
-### 4. What would be the output of following code?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2860,13 +2884,14 @@ foo();
 3.  6
 4.  undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) 6
 
 </details>
 
-### 5. What would be the output of following code?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2882,13 +2907,14 @@ foo();
 3.  Type Error
 4.  undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
 
 </details>
 
-### 6. What would be the output of following code?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2905,13 +2931,14 @@ foo();
 3.  1 -1 -1 -1
 4.  1 undefined -1 4
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 1 -1 -1 4
 
 </details>
 
-### 7. What would be the output of following code?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2927,13 +2954,14 @@ foo();
 3.  1 1 -1 
 4.  1 undefined undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 1 6 -1
 
 </details>
 
-### 8. What would be the output of following code?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2956,13 +2984,14 @@ foo();
 3.  [ 2, 4, 8, 12, 16 ] true 
 4.  [ 2, 4, 8, 12, 16 ] false
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) [ 2, 4, 8, 12, 16 ] true 
 
 </details>
 
-### 9. What would be the output of following code?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -2995,8 +3024,7 @@ foo();
 	[ 2, '12', true,false ]
 	[ 2, '12', true,false]
 
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
  1) [ 2, '12', true ]
 			 [ 2, '12', true ]
@@ -3005,7 +3033,7 @@ foo();
 			 
 </details>
 
-### 10. What would be the output of following code?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3039,7 +3067,7 @@ foo();
    []
    [ 'foo', 'bar', 'john', 'ritz' ]
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
  1) [ 'bar', 'john', 'ritz' ]
 		 	 [ 'bar', 'john' ]
@@ -3049,7 +3077,7 @@ foo();
 
 </details>
 
-### 11. What would be the output of following code?
+### 11. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3065,13 +3093,14 @@ foo();
 3.  [ 'bar', 'john' ] [ 'bar', 'john' ] [ 'bar', 'john' ]
 4.  [ 'bar', 'john' ] [] []
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1.  [ 'bar', 'john' ] [] [ 'foo' ] 
 
 </details>
 
-### 12. What would be the output of following code?
+### 12. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3086,7 +3115,8 @@ foo();
 3.  [ 15, 16, 2, 23, 42, 8 ]
 4.  [ 2, 8, 15, 16, 23, 42 ]
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3.  [ 15, 16, 2, 23, 42, 8 ]
 
@@ -3094,7 +3124,7 @@ foo();
 
 ## Functions
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function funcA(){
@@ -3117,13 +3147,14 @@ console.log(funcA());
 3.  Type Error
 4.  ReferenceError: this is not defined 
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3141,13 +3172,14 @@ console.log(obj.innerMessage);
 3.  Type Error
 4.  undefined true
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) undefined true
 
 </details>
 
-### 3. What would be the output of following code ?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3165,13 +3197,14 @@ console.log(obj.innerMessage());
 3.  Type Error
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) Hello
 
 </details>
 
-### 4. What would be the output of following code ?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3190,13 +3223,13 @@ console.log(obj.innerMessage());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
  3) undefined
 	
 </details>
 
-### 5. What would be the output of following code ?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var obj = {
@@ -3216,13 +3249,14 @@ console.log(obj.innerMessage());
 3.  undefined
 4.  ReferenceError: self.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'Hello'
 
 </details>
 
-### 6. What would be the output of following code ?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc(){
@@ -3238,13 +3272,14 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) undefined
 
 </details>
 
-### 7. What would be the output of following code ?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc(){
@@ -3260,13 +3295,14 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'Hi John'
 
 </details>
 
-### 8. What would be the output of following code ?
+### 8. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc() {
@@ -3281,13 +3317,14 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 'Hi John'
 
 </details>
 
-### 9. What would be the output of following code ?
+### 9. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc(param1,param2) {
@@ -3303,13 +3340,14 @@ console.log(myFunc("a","b","c","d"));
 3.  undefined
 4.  ReferenceError
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  a) 2 2 2 
 
 </details>
 
-### 10. What would be the output of following code ?
+### 10. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function myFunc() {
@@ -3325,7 +3363,8 @@ console.log(myFunc("a","b","c","d"));
 3.  undefined
 4.  ReferenceError
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 0 2 4 
 
