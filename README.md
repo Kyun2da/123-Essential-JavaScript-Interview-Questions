@@ -407,21 +407,22 @@ console.log(emp1.company);
 
 </details>
 
-## Question 12. What is `undefined x 1` in JavaScript
+## Question 12. JavaScript 에서 `undefined x 1` 은  무엇일까요 ? 
 
 ```javascript
 var trees = ["redwood", "bay", "cedar", "oak", "maple"];
 delete trees[3];
 ```
 
-<details><summary><b>Answer</b></summary>
- - When you run the code above and do `console.log(trees);` in chrome developer console then you will get `["redwood", "bay", "cedar", undefined × 1, "maple"]`.
- - In the recent versions of Chrome you will see the word `empty` of `undefined x 1`.
- - When you run the same code in Firefox browser console then you will get `["redwood", "bay", "cedar", undefined, "maple"]`
+<details><summary><b>정답</b></summary>
+<br> - 위의 코드를 Chrome 개발자 콘솔에서 실행하고 `console.log(trees)` 을 하면 `["redwood", "bay", "cedar", undefined × 1, "maple"]` 라는 결과를 얻게 됩니다.
+<br> - 최근 버전의 Chrome에서는 `undefined x 1` 의 `empty`를 보게 됩니다. 
+<br> - Firefox 의 브라우저 콘솔에서 같은 코드를 실행하면 `["redwood", "bay", "cedar", undefined, "maple"]` 을 얻게 됩니다. 
 
-Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
 
-**Note:** Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome.
+우리는 명확하게 Chrome이 배열의 초기화 되지 않은 인덱스를 Chrome만의 방식으로 보여주고 있다는 것을 알 수 있습니다. 그러나 우리가`trees[3] === undefined` 를  확인할 때는 어떤 브라우저든지  `true` 와 비슷한 결과를 보게됩니다. 
+
+**Note:** 배열의 초기화되지 않은 인덱스를 확인할 때 `trees[3] === 'undefined × 1'` 으로 확인할 필요가 없다는 것을 기억하세요. 그 표시는 Chrome 에서 배열에서 초기화 되지 않았음을 나타내는 방식일 뿐이고, 에러만 발생시키기 때문입니다. 
 
 
 
