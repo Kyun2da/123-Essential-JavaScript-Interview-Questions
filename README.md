@@ -3363,15 +3363,13 @@ console.log(myFunc("a","b","c","d"));
 4.  ReferenceError
 	
 <details><summary><b>정답</b></summary>
-
-
  2) 0 2 4 
 
 </details>
 
-## Object Oriented
+## 객체 지향
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function Person(name, age){
@@ -3397,15 +3395,16 @@ var person1 = new Person('John');
 3.  John undefined
 4.  John John
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) John Person 
 
 </details>
 
-## Scopes
+## 스코프
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function passWordMngr() {
@@ -3426,13 +3425,14 @@ console.log(userInfo.userName);
 3.  12345678 undefined
 4.  undefined undefined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  3) 12345678 undefined 
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'aq123';
@@ -3447,13 +3447,14 @@ console.log(Employee.employeeId);
 3.  bq1uy
 4.  undefined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) undefined 
 
 </details>
 
-### 3. What would be the output of following code ?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'aq123';
@@ -3473,13 +3474,14 @@ console.log(new Employee().employeeId);
 3.  bq1uy 1BJKSJ kj182
 4.  undefined 1BJKSJ kj182
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) bq1uy 1BJKSJ bq1uy 
 
 </details>
 
-### 4. What would be the output of following code ?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 var employeeId = 'aq123';
@@ -3498,7 +3500,8 @@ var employeeId = 'aq123';
 3.  aq123 aq123
 4.  foo123 undefined 
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) foo123 aq123 
 
