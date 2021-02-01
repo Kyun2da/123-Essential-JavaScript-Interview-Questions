@@ -3511,7 +3511,7 @@ var employeeId = 'aq123';
 
 ## Call, Apply, Bind
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -3527,14 +3527,14 @@ var employeeId = 'aq123';
 2.  undefined
 3.  World
 4.  [ 'W', 'o', 'r', 'l', 'd' ] 
-	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) [ 'W', 'o', 'r', 'l', 'd' ]  
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -3563,13 +3563,14 @@ var employeeId = 'aq123';
 3.  Total amount left in account: 3600 Total amount left in account: 3300
 4.  Total amount left in account: 5600 Total amount left in account: 5600
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) Total amount left in account: 5600 Total amount left in account: 5300 
 
 </details>
 
-### 3. What would be the output of following code ?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -3599,13 +3600,14 @@ var employeeId = 'aq123';
 3. 5600 3300 5100
 4. undefined undefined undefined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 5600 5300 5100
 
 </details>
 
-### 4. What would be the output of following code ?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function() {
@@ -3635,13 +3637,14 @@ var employeeId = 'aq123';
 3. 5600 3300 5100
 4. undefined undefined undefined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) 3600 3300 3100
 
 </details>
 
-### 5. What would be the output of following code ?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function greetNewCustomer() {
@@ -3656,18 +3659,19 @@ var employeeId = 'aq123';
 3. Window
 4. undefined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) Hello John
 
 </details>
 
-### 6. Suggest your question!
+### 6. 문제를 제안해보세요!
 
 
-## Callback Functions
+## 콜백 함수
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function getDataFromServer(apiUrl){
@@ -3690,13 +3694,14 @@ getDataFromServer('www.google.com').then(function(name){
 3. Reference Error
 4. fn is not defined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) John
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3738,7 +3743,7 @@ getDataFromServer('www.google.com').then(function(name){
    [42, 23, 16, 15, 8, 2]
 4. Reference Error
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 
  1) [ 2, 8, 15, 16, 23, 42 ]
 			 [ 2, 8, 15, 16, 23, 42 ]
@@ -3746,6 +3751,7 @@ getDataFromServer('www.google.com').then(function(name){
 
 </details>
 			
+
 ## Return Statement
 
 ### 1. What would be the output of following code ?
