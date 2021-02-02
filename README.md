@@ -3754,7 +3754,7 @@ getDataFromServer('www.google.com').then(function(name){
 
 ## Return Statement
 
-### 1. What would be the output of following code ?
+### 1. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 (function(){
@@ -3774,13 +3774,14 @@ getDataFromServer('www.google.com').then(function(name){
 3. Reference Error
 4. Uncaught TypeError: Cannot read property 'fullName' of undefined
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  4) Uncaught TypeError: Cannot read property 'fullName' of undefined
 
 </details>
 
-### 2. What would be the output of following code ?
+### 2. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function getNumber(){
@@ -3796,13 +3797,14 @@ console.log(numb);
 3. 2
 4. (2,4,5)
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 5
 
 </details>
 
-### 3. What would be the output of following code ?
+### 3. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function getNumber(){
@@ -3818,13 +3820,14 @@ console.log(numb);
 3. ""
 4. 0
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) undefined
 
 </details>
 
-### 4**. What would be the output of following code ?
+### 4. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function mul(x){
@@ -3843,14 +3846,14 @@ console.log(mul(2)(3)[1](4));
 2. undefined undefined
 3. Reference Error
 4. 10, 6
-	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 6, 10
 
 </details>
 
-### 5**. What would be the output of following code ?
+### 5. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function mul(x) {
@@ -3871,14 +3874,14 @@ console.log(mul(2)(3).sum(4));
 2. undefined undefined
 3. Reference Error
 4. 10, 6
-	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 6, 10
 
 </details>
 
-### 6. What would be the output of following code ?
+### 6. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function mul(x) {
@@ -3900,13 +3903,14 @@ console.log(mul(2)(3)(4)(5)(6));
 3. Reference Error
 4. Type Error
 	
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  1) 720
 
 </details>
 
-### 7. What would be the output of following code ?
+### 7. 다음 코드의 결과는 무엇일까요?
 
 ```javascript
 function getName1(){
@@ -3931,7 +3935,8 @@ personObj.getName2();
 3. undefined Tony
 4. Tony Tony
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
+
 
  2) Tony undefined
 
